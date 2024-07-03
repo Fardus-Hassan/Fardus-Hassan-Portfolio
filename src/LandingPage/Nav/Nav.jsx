@@ -7,11 +7,11 @@ const Nav = () => {
 
     return (
         <nav className="relative bg-white shadow dark:bg-gray-800">
-            <div className="xl:container px-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
+            <div className="xl:container px-6 sm:py-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
                 <div className="flex items-center justify-between gap-5">
                     <div className='flex justify-center items-center gap-2'>
                         {/* <img className="w-14" src="../../../public/code.png" alt="" /> */}
-                        <h1 className='gradient-color md:text-4xl text-3xl font-black mb-1'>&lt;<span className='md:text-3xl text-2xl font-black'>Fardus Hassan</span><span className='font-bold'>/</span>&gt;</h1>
+                        <h1 className='gradient-color md:text-4xl text-3xl font-black mb-2'>&lt;<span className='md:text-3xl text-2xl font-black'>Fardus Hassan</span><span className='font-bold'>/</span>&gt;</h1>
                         {/* <h1 className='font-jost text-2xl font-black gradient-color'></h1> */}
                     </div>
 
@@ -65,7 +65,7 @@ const Nav = () => {
                 >
                     <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
                         <a
-                            className="gradient-textColor"
+                            className="gradient-textColor "
                             href="#"
                         >
                             Home
