@@ -10,12 +10,12 @@ export default {
       colors : {
         themeColor : "#18191A",
         themeColor2 : "#242526",
-        pmColor : "#4cd137",
-        secColor: "#44bd32"
+        pmColor : "#DC7EEC",
+        secColor: "#5846F2"
       },
       fontFamily : {
         poppins : ["Poppins", "sans-serif"],
-        montserrat : ["Montserrat", "sans-serif"]
+        jost : ["Jost", "sans-serif"]
       },
       screens: {
         'xs': {'max': '320px'},

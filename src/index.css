@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-color {
+  background: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-button {
+  background: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2);
+  background-size: 200% 200%;
+  animation: gradient 4s ease infinite;
+}
+
+.bg-Color {
+  background: linear-gradient(45deg, #DC7EEC,  #5846F2);
+}
+
+.gradient-button span {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.gradient-textColor {
+  background: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+}
