@@ -15,6 +15,25 @@
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    opacity: .5;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: .5;
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
 .gradient-color {
   background: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2);
   background-size: 200% 200%;
