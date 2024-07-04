@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 
+.jost-regular {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Adjust weight as needed */
+  font-style: normal;
+}
+
+.jost-bold {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Adjust weight as needed */
+  font-style: normal;
+}
+
+/* Add more variations as needed */
+
+
 body{
   background: white;
 }
