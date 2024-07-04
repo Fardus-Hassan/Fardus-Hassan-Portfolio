@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+body{
+  background: white;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -68,4 +72,9 @@
   background: linear-gradient(45deg, #5846F2,#DC7EEC,#5846F2,#DC7EEC);
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
+}
+
+.gradient-spinner{
+  display: block !important;
+  color: linear-gradient(45deg, #5846F2,#DC7EEC,#5846F2,#DC7EEC);
 }

@@ -6,8 +6,8 @@ const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="relative bg-white shadow dark:bg-gray-800">
-            <div className="xl:container px-6 sm:py-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
+        <nav className="fixed z-[100] w-full bg-white"> 
+            <div className="xl:container sm:px-6 w-[95%] sm:py-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
                 <div className="flex items-center justify-between gap-5">
                     <div className='flex justify-center items-center gap-2'>
                         {/* <img className="w-14" src="../../../public/code.png" alt="" /> */}
@@ -60,36 +60,36 @@ const Nav = () => {
 
                 {/* Mobile Menu open: "block", Menu closed: "hidden" */}
                 <div
-                    className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:translate-x-0 md:opacity-100 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto font-jost font-semibold lg:flex lg:items-center mt-4  ${isOpen ? '' : 'opacity-0 -translate-x-full'
+                    className={`absolute inset-x-0 z-20 w-full px-6 py-8 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:translate-x-0 md:opacity-100 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto font-jost font-semibold lg:flex lg:items-center mt-4  ${isOpen ? '' : 'opacity-0 -translate-x-full'
                         }`}
                 >
                     <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
                         <a
-                            className="gradient-textColor "
+                            className="text-black hover:text-pmColor duration-300"
                             href="#"
                         >
                             Home
                         </a>
                         <a
-                            className="gradient-textColor"
+                            className="text-black hover:text-pmColor duration-300"
                             href="#"
                         >
                             About
                         </a>
                         <a
-                            className="gradient-textColor"
+                            className="text-black hover:text-pmColor duration-300"
                             href="#"
                         >
                             Skills
                         </a>
                         <a
-                            className="gradient-textColor"
+                            className="text-black hover:text-pmColor duration-300"
                             href="#"
                         >
                             Projects
                         </a>
                         <a
-                            className="gradient-textColor"
+                            className="text-black hover:text-pmColor duration-300"
                             href="#"
                         >
                             Contact
@@ -99,7 +99,7 @@ const Nav = () => {
 
                 </div>
                 <div>
-                <button className="group lg:block hidden relative h-12 overflow-hidden overflow-x-hidden rounded-md bg-Color px-8 py-2 text-neutral-50"><span className="relative z-10 font-jost font-semibold ">Contact Me</span><span className="absolute inset-0 overflow-hidden rounded-md"><span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full gradient-button transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150"></span></span></button>
+                <button className="group lg:block hidden relative h-12 overflow-hidden overflow-x-hidden rounded-md bg-secColor px-8 py-2 text-neutral-50"><span className="relative z-10 font-jost font-semibold ">Contact Me</span><span className="absolute inset-0 overflow-hidden rounded-md"><span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full gradient-button transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150"></span></span></button>
                 </div>
             </div>
         </nav>
