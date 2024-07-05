@@ -17,7 +17,9 @@
   font-style: normal;
 }
 
-/* Add more variations as needed */
+html {
+  scroll-behavior: smooth;
+}
 
 
 body{

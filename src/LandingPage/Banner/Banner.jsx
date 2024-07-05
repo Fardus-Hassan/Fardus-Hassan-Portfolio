@@ -71,7 +71,7 @@ const Banner = () => {
                 </div>
             </div>
             <img className='absolute top-8 left-5 lg:w-20 w-12 float-animation' src={react} alt="" />
-            <img className='absolute top-8 right-5 lg:w-20 w-12 rounded-xl float-animation' src={js} alt="" />
+            <img className='absolute top-8 right-5 lg:w-[70px] w-12 rounded-xl float-animation' src={js} alt="" />
             <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation'  src={tailwind} alt="" />
             <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={css} alt="" />
         </div>

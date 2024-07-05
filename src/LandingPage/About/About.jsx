@@ -1,6 +1,8 @@
 import aboutme from '../../assets/IMG_20240705_012920.png';
 import React, { useEffect, useState } from 'react';
 import { request, gql } from 'graphql-request';
+import AnimatedNumbers from 'react-animated-numbers';
+
 
 const About = () => {
 
@@ -42,7 +44,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className='xl:container w-[95%] mx-auto lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mt-28'>
+        <div id='about' className='xl:container w-[95%] mx-auto lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mt-28'>
             <div className='flex lg:flex-row-reverse flex-col justify-between items-center lg:gap-20 gap-10'>
                 <div className='banner rounded-full md:w-[500px] w-[300px] md:h-[600px] h-[400px]  relative'>
                     <img className='md:w-[500px] w-[300px] md:h-[700px] h-[500px]  rounded-full object-cover object-top absolute md:translate-y-[-14%] translate-y-[-20%] left-[50%] translate-x-[-50%]' src={aboutme} alt="" />
@@ -56,7 +58,9 @@ const About = () => {
                     </div>
                     <div className='mt-8 flex justify-between items-center gap-8 flex-wrap w-full'>
                         <div>
-                            <span className='font-jost font-bold lg:text-3xl text-2xl gradient-color'>{contributions !== null ? contributions : 0}</span>
+                            <span className='font-jost font-bold lg:text-3xl text-2xl gradient-color'>
+                                {contributions || 0}
+                            </span>
                             <h3 className='font-jost lg:text-xl text-lg font-medium'>Github Commits</h3>
                         </div>
                         <div>

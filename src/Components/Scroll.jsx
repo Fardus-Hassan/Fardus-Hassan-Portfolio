@@ -6,9 +6,9 @@ function Scroll() {
   const [showScrollIcon, setShowScrollIcon] = useState(false);
 
   const checkScrollTop = () => {
-    if (!showScrollIcon && window.pageYOffset > 3000) {
+    if (!showScrollIcon && window.pageYOffset > 500) {
       setShowScrollIcon(true);
-    } else if (showScrollIcon && window.pageYOffset <= 3000) {
+    } else if (showScrollIcon && window.pageYOffset <= 500) {
       setShowScrollIcon(false);
     }
   };
@@ -30,7 +30,7 @@ function Scroll() {
       </div>
       {showScrollIcon && (
         <button
-          className="fixed bottom-5 right-5 bg-pmColor text-white p-3 rounded-full shadow-lg z-50"
+          className="fixed bottom-5 right-5 gradient-button text-white p-3 rounded-full shadow-lg z-50"
           onClick={scrollTop}
         >
           <FaArrowUp size={20} />

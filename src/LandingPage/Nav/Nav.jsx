@@ -7,11 +7,11 @@ const Nav = () => {
 
     return (
         <nav className="fixed z-[100] w-full bg-white"> 
-            <div className="xl:container sm:px-6 w-[95%] sm:py-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
+            <div className="xl:container xl:px-6 w-[90%] sm:py-6 py-4 mx-auto lg:flex lg:justify-between lg:items-center">
                 <div className="flex items-center justify-between gap-5">
                     <div className='flex justify-center items-center gap-2'>
                         {/* <img className="w-14" src="../../../public/code.png" alt="" /> */}
-                        <h1 className='gradient-color md:text-4xl text-3xl jost-bold mb-2'>&lt;<span className='md:text-3xl text-2xl font-black'>Fardus</span><span className='font-bold'>/</span>&gt;</h1>
+                        <a href='#home' className='gradient-color md:text-4xl text-3xl jost-bold mb-2'>&lt;<span className='md:text-3xl text-2xl font-black'>Fardus</span><span className='font-bold'>/</span>&gt;</a>
                         {/* <h1 className='font-jost text-2xl font-black gradient-color'></h1> */}
                     </div>
 
@@ -66,13 +66,13 @@ const Nav = () => {
                     <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
                         <a
                             className="text-black hover:text-pmColor duration-300"
-                            href="#"
+                            href="#home"
                         >
                             Home
                         </a>
                         <a
                             className="text-black hover:text-pmColor duration-300"
-                            href="#"
+                            href="#about"
                         >
                             About
                         </a>
