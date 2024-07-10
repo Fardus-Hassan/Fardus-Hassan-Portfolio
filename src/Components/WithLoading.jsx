@@ -10,7 +10,7 @@ const WithLoading = ({children}) => {
     // Simulate loading for 2 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [children]);

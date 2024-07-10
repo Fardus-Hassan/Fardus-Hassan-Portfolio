@@ -79,8 +79,8 @@ const About = () => {
                     <img className='md:w-[500px] w-[300px] md:h-[700px] h-[500px]  rounded-full object-cover object-top absolute md:translate-y-[-14%] translate-y-[-20%] left-[50%] translate-x-[-50%]' src={aboutme} alt="" />
                 </div>
                 <div>
-                    <h3 className='font-bold font-jost jost lg:text-xl'><span className='gradient-color'>&lt;/&gt;</span> About Me</h3>
-                    <h1 className='font-bold font-jost lg:text-[46px] text-[30px] max-w-[700px] mt-5' >Passionate Junior MERN Stack & Front-End Developer</h1>
+                    <h3 className='font-bold font-jost jost lg:text-xl gradient-color'>&lt; About Me/&gt;</h3>
+                    <h1 className='font-bold font-jost lg:text-[44px] text-[30px] max-w-[700px] mt-5' >Passionate Junior MERN Stack & Front-End Developer</h1>
                     <div className='max-h-[260px] overflow-y-auto'>
                         <p className='font-jost lg:text-lg max-w-[700px] my-8'>I am a Front-End Developer and Junior MERN Stack Developer from a Mechanical Engineering background. Passionate about programming, I have strong skills in HTML, CSS, Tailwind, JavaScript, and React, with experience in Firebase Authentication, Git, and GitHub.</p>
                         <p className='font-jost lg:text-lg max-w-[700px]'>I am also learning Node.js, Express.js, MongoDB, JWT, Next.js, and various component libraries. Based in Joydebpur, Gazipur, Bangladesh, I am eager to grow and contribute to web development.</p>

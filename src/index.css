@@ -103,3 +103,9 @@ body{
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
 }
+
+.hoverColor {
+  background: linear-gradient(45deg, #5846F240,#DC7EEC40,#5846F240,#DC7EEC40);
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
