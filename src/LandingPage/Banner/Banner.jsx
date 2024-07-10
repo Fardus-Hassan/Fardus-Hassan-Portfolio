@@ -10,6 +10,7 @@ import css from "../../assets/css.png"
 import js from "../../assets/js.png"
 import react from "../../assets/react.png"
 import tailwind from "../../assets/tailwind.png"
+import PDF from "../../assets/certificate.pdf"
 
 const Banner = () => {
 
@@ -29,7 +30,7 @@ const Banner = () => {
 
     return (
         <div className='banner xl:py-[140px] py-10 relative' >
-            <div className='container flex flex-col justify-center h-full 2xl:w-[80%] xl:w-[90%] w-[95%] mx-auto'>
+            <div className='container flex flex-col justify-center h-full 2xl:w-[80%] xl:w-[90%] w-[90%] mx-auto'>
                 <div className='flex xl:flex-row-reverse flex-col-reverse justify-between items-center md:gap-16 gap-10'>
                     <div>
                         <div className="transition-transform duration-500 text-left ease-out">
@@ -57,7 +58,7 @@ const Banner = () => {
                                     <a href='https://www.linkedin.com/in/fardus-hassan-05a3932aa/' target='blank' className='border rounded-xl p-2 text-white hover:scale-110 duration-300 ease-out text-3xl' ><FaLinkedinIn /></a>
                                     <a href='https://api.whatsapp.com/send/?phone=8801722092675&text&type=phone_number&app_absent=0' target='blank' className='border rounded-xl p-2 text-white hover:scale-110 duration-300 ease-out text-3xl'><FaWhatsapp /></a>
                                 </div>
-                                <a href='../../../public/InShot_20240703_024351363.jpg' download><button className="group relative jost-bold inline-flex h-12 items-center justify-center overflow-hidden rounded-md border px-6 font-medium text-white duration-300 ease-out"><div className="translate-y-0 opacity-100 transition group-hover:-translate-y-[150%] group-hover:opacity-0 text-nowrap">Download Resume</div><div className="absolute translate-y-[150%] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6"><MdFileDownload /></svg></div></button></a>
+                                <a href={PDF} download="certificate"><button className="group relative jost-bold inline-flex h-12 items-center justify-center overflow-hidden rounded-md border px-6 font-medium text-white duration-300 ease-out"><div className="translate-y-0 opacity-100 transition group-hover:-translate-y-[150%] group-hover:opacity-0 text-nowrap">Download Resume</div><div className="absolute translate-y-[150%] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6"><MdFileDownload /></svg></div></button></a>
                             </div>
                         </div>
 
