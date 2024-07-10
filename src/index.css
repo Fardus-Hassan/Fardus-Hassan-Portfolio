@@ -98,3 +98,8 @@ body{
   color: linear-gradient(45deg, #5846F2,#DC7EEC,#5846F2,#DC7EEC);
 }
 
+.footer {
+  background: linear-gradient(45deg, #5846F240,#DC7EEC40,#5846F240,#DC7EEC40);
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
