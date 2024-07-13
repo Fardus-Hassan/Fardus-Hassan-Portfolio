@@ -5,6 +5,7 @@ import Nav from './Nav/Nav';
 import Scroll from '../Components/Scroll';
 import Footer from './Footer/Footer';
 import Projects from './Projects/Projects';
+import Contact from './Contact/Contact';
 
 const LandingPage = () => {
     return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
             <Banner></Banner>
             <About></About>
             <Projects></Projects>
+            <Contact></Contact>
             <Footer></Footer>
         </div>
     );

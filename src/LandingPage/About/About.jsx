@@ -73,13 +73,14 @@ const About = () => {
     }, []);
 
     return (
-        <div id='about' className='xl:container w-[90%] mx-auto lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mt-28'>
+        <div  id='about'>
+            <div className='xl:container w-[90%] mx-auto lg:mb-[150px] sm:mb-[100px] mb-20 '>
             <div className='flex lg:flex-row-reverse flex-col justify-between items-center lg:gap-20 gap-10'>
                 <div className='banner rounded-full md:w-[500px] w-[300px] md:h-[600px] h-[400px]  relative'>
-                    <img className='md:w-[500px] w-[300px] md:h-[700px] h-[500px]  rounded-full object-cover object-top absolute md:translate-y-[-14%] translate-y-[-20%] left-[50%] translate-x-[-50%]' src={aboutme} alt="" />
+                    <img className='md:w-[500px] rounded-full w-[300px] md:h-[700px] h-[500px] object-cover object-top absolute md:translate-y-[-14%] translate-y-[-20%] left-[50%] translate-x-[-50%]' src={aboutme} alt="" />
                 </div>
                 <div>
-                    <h3 className='font-bold font-jost jost lg:text-xl gradient-color'>&lt; About Me/&gt;</h3>
+                    <h3 className='font-bold font-jost jost lg:text-xl gradient-color'>&lt;About Me/&gt;</h3>
                     <h1 className='font-bold font-jost lg:text-[44px] text-[30px] max-w-[700px] mt-5' >Passionate Junior MERN Stack & Front-End Developer</h1>
                     <div className='max-h-[260px] overflow-y-auto'>
                         <p className='font-jost lg:text-lg max-w-[700px] my-8'>I am a Front-End Developer and Junior MERN Stack Developer from a Mechanical Engineering background. Passionate about programming, I have strong skills in HTML, CSS, Tailwind, JavaScript, and React, with experience in Firebase Authentication, Git, and GitHub.</p>
@@ -109,6 +110,7 @@ const About = () => {
 
 
             </div>
+        </div>
         </div>
     );
 };

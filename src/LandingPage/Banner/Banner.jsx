@@ -28,13 +28,17 @@ const Banner = () => {
         };
     }, []);
 
+    
+
     return (
-        <div className='banner xl:py-[140px] py-10 relative' >
+        <div className='banner xl:py-[140px] py-10 relative duration-300 ease-out sm:mb-[150px] mb-20' style={{
+            transform: `translateY(${scrollPosition / -10}px)`
+        }}>
             <div className='container flex flex-col justify-center h-full 2xl:w-[80%] xl:w-[90%] w-[90%] mx-auto'>
                 <div className='flex xl:flex-row-reverse flex-col-reverse justify-between items-center md:gap-16 gap-10'>
                     <div>
                         <div className="transition-transform duration-500 text-left ease-out">
-                            <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] jost-bold`} style={{
+                            <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>Hi👋 I’m Fardus Hassan <br /> A <Typewriter
                                     words={['Front-end Web Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
@@ -65,7 +69,7 @@ const Banner = () => {
                     </div>
                     <div>
 
-                        <img className='lg:min-w-[550px] lg:h-[550px] md:h-[450px] h-[350px] object-cover duration-300 ease-out rounded-full' src={myimg} alt="" style={{
+                        <img className='lg:min-w-[550px] resizing-image lg:h-[550px] md:h-[450px] h-[350px] object-cover duration-300 ease-out ' src={myimg} alt="" style={{
                             transform: `translateY(${scrollPosition / -5}px)`
                         }} />
                     </div>

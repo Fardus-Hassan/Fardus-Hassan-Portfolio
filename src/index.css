@@ -6,14 +6,16 @@
 .jost-regular {
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400; /* Adjust weight as needed */
+  font-weight: 400;
+  /* Adjust weight as needed */
   font-style: normal;
 }
 
 .jost-bold {
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700; /* Adjust weight as needed */
+  font-weight: 700;
+  /* Adjust weight as needed */
   font-style: normal;
 }
 
@@ -22,7 +24,7 @@ html {
 }
 
 
-body{
+body {
   background: white;
 }
 
@@ -30,9 +32,11 @@ body{
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -43,10 +47,12 @@ body{
     transform: translateY(0px);
     opacity: .5;
   }
+
   50% {
     transform: translateY(-20px);
     opacity: 1;
   }
+
   100% {
     transform: translateY(0px);
     opacity: .5;
@@ -72,7 +78,7 @@ body{
 }
 
 .bg-Color {
-  background: linear-gradient(45deg, #DC7EEC,  #5846F2);
+  background: linear-gradient(45deg, #DC7EEC, #5846F2);
 }
 
 
@@ -88,24 +94,62 @@ body{
 }
 
 .banner {
-  background: linear-gradient(45deg, #5846F2,#DC7EEC,#5846F2,#DC7EEC);
+  background: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2, #DC7EEC);
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
 }
 
-.gradient-spinner{
+.gradient-spinner {
   display: block !important;
-  color: linear-gradient(45deg, #5846F2,#DC7EEC,#5846F2,#DC7EEC);
+  color: linear-gradient(45deg, #5846F2, #DC7EEC, #5846F2, #DC7EEC);
 }
 
 .footer {
-  background: linear-gradient(45deg, #5846F240,#DC7EEC40,#5846F240,#DC7EEC40);
+  background: linear-gradient(45deg, #5846F240, #DC7EEC40, #5846F240, #DC7EEC40);
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
 }
 
-.hoverColor {
-  background: linear-gradient(45deg, #5846F240,#DC7EEC40,#5846F240,#DC7EEC40);
+.liteBgColor {
+  background: linear-gradient(90deg, #5846F280, #DC7EE980, #5846F280, #DC7EEC80);
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
 }
+
+.inputBgColor {
+  background: linear-gradient(90deg, #5846F220, #DC7EE920, #5846F220, #DC7EEC20);
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes resizeAnimation {
+  0% {
+    border-top-left-radius: 45%;
+    border-top-right-radius: 55%;
+    border-bottom-left-radius: 55%;
+    border-bottom-right-radius:45%;
+    background-position: 0% 50%;
+  }
+
+  50% {
+    border-top-left-radius: 55%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 55%;
+    background-position: 100% 50%;
+  }
+
+  100% {
+    border-top-left-radius: 45%;
+    border-top-right-radius: 55%;
+    border-bottom-left-radius: 55%;
+    border-bottom-right-radius: 45%;
+    background-position: 0% 50%;
+  }
+}
+
+.resizing-image {
+  animation: resizeAnimation 3s ease-in-out infinite;
+
+}
+

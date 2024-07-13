@@ -4,11 +4,11 @@ const Projects = () => {
     return (
         <div id='projects'>
             <div className="xl:container w-[90%] lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mx-auto">
-                <h3 className='font-bold font-jost lg:text-xl text-center gradient-color'>&lt; Projects/&gt;</h3>
+                <h3 className='font-bold font-jost lg:text-xl text-center gradient-color'>&lt;Projects/&gt;</h3>
                 <h1 className="mt-2 text-center text-black font-jost lg:text-[44px] text-[30px] font-bold">
                     MY RECENT WORK
                 </h1>
-                <section className="mt-8 space-y-8 lg:mt-12 lg:max-h-[75vh] overflow-y-auto">
+                <section className="mt-10 space-y-8 lg:mt-14 lg:max-h-[75vh] max-h-[90vh] overflow-y-auto">
                     <section className="lg:flex lg:items-center">
                         <div className="lg:w-1/2">
                             <p className="text-xl tracking-wider gradient-color font-semibold">EmployeeFlow</p>
