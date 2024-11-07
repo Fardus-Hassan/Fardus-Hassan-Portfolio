@@ -11,7 +11,7 @@ const Footer = () => {
 
 
     return (
-        <footer className="font-jost footer">
+        <footer className="font-jost shadow-2xl">
             <div className="py-8 w-[90%] mx-auto">
                 <div className="flex flex-col items-center text-center">
                     <div className='mb-5'>

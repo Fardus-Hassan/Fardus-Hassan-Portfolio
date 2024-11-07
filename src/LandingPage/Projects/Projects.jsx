@@ -2,13 +2,25 @@ import React from 'react';
 
 const Projects = () => {
     return (
-        <div id='projects'>
+        <div id='projects' className='xl:w-[95%] mx-auto'>
             <div className="xl:container w-[90%] lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mx-auto">
                 <h3 className='font-bold font-jost lg:text-xl text-center gradient-color'>&lt;Projects/&gt;</h3>
                 <h1 className="mt-2 text-center text-black font-jost lg:text-[44px] text-[30px] font-bold">
                     MY RECENT WORK
                 </h1>
-                <section className="mt-10 space-y-8 lg:mt-14 lg:max-h-[75vh] max-h-[90vh] overflow-y-auto">
+                <section className="mt-10 space-y-8 lg:mt-14 lg:max-h-[75vh] max-h-[90vh] overflow-y-auto scrollBar">
+                    <section className="lg:flex lg:items-center">
+                        <div className="lg:w-1/2">
+                            <p className="text-xl tracking-wider gradient-color font-semibold">DevDive</p>
+                            <h2 className="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">Developer Forum Website</h2>
+                            <a href='https://devdive1.netlify.app/' target='_blank' className="mt-5 block  font-semibold tracking-wider text-black border w-fit px-2 py-1 rounded-lg hover:text-secColor duration-300 ">View live</a>
+                        </div>
+
+                        <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border ">
+                            <iframe src="https://devdive1.netlify.app/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
+                        </div>
+                    </section>
+                    <hr />
                     <section className="lg:flex lg:items-center">
                         <div className="lg:w-1/2">
                             <p className="text-xl tracking-wider gradient-color font-semibold">EmployeeFlow</p>
@@ -16,8 +28,8 @@ const Projects = () => {
                             <a href='https://employee-flow.web.app/' target='_blank' className="mt-5 block  font-semibold tracking-wider text-black border w-fit px-2 py-1 rounded-lg hover:text-secColor duration-300 ">View live</a>
                         </div>
 
-                        <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border">
-                            <iframe src="https://employee-flow.web.app/" className='w-[100%] h-[500px] rounded-xl'></iframe>
+                        <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border ">
+                            <iframe src="https://employee-flow.web.app/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
                         </div>
                     </section>
                     <hr />
@@ -29,7 +41,7 @@ const Projects = () => {
                         </div>
 
                         <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border">
-                            <iframe src="https://eventx-7378e.web.app/" className='w-[100%] h-[500px] rounded-xl'></iframe>
+                            <iframe src="https://eventx-7378e.web.app/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
                         </div>
                     </section>
                     <hr />
@@ -41,7 +53,7 @@ const Projects = () => {
                         </div>
 
                         <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border">
-                            <iframe src="https://trip-trove-1d68d.web.app/" className='w-[100%] h-[500px] rounded-xl'></iframe>
+                            <iframe src="https://trip-trove-1d68d.web.app/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
                         </div>
                     </section>
                     <hr />
@@ -53,7 +65,7 @@ const Projects = () => {
                         </div>
 
                         <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border">
-                            <iframe src="https://dream-land-17173.web.app/" className='w-[100%] h-[500px] rounded-xl'></iframe>
+                            <iframe src="https://dream-land-17173.web.app/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
                         </div>
                     </section>
                     <hr />

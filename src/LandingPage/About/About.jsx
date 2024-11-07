@@ -73,7 +73,7 @@ const About = () => {
     }, []);
 
     return (
-        <div  id='about'>
+        <div  id='about' className='xl:w-[95%] mx-auto'>
             <div className='xl:container w-[90%] mx-auto lg:mb-[150px] sm:mb-[100px] mb-20 '>
             <div className='flex lg:flex-row-reverse flex-col justify-between items-center lg:gap-20 gap-10'>
                 <div className='banner rounded-full md:w-[500px] w-[300px] md:h-[600px] h-[400px]  relative'>
