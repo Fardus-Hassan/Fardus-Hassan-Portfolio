@@ -45,39 +45,39 @@ const Contact = () => {
                     Contact With Me
                 </h1>
             </div> */}
-            <div className='flex justify-between items-center'>
-                <div>
+            <div className='lg:flex justify-between items-center'>
+                <div className='lg:mx-0 mx-auto lg:text-left text-center'>
                 <div className='mb-6'>
                     <h3 className='font-bold font-jost lg:text-xl gradient-color'>&lt;Contact/&gt;</h3>
                     <h1 className="mt-2 text-black font-jost lg:text-[44px] text-[30px] font-bold">
-                        Contact With Me <br />Now!
+                        Contact With Me
                     </h1>
                 </div>
                 <div className=''>
-                    <div className=' rounded-lg p-5 flex items-end gap-6'>
+                    <div className=' rounded-lg p-5 flex lg:justify-start justify-center items-end gap-6'>
                         <img src={phone} alt=""  className='w-10' />
-                        <h2 className='text-black font-semibold mt-4 lg:text-left text-center'>
+                        <h2 className='text-black font-semibold mt-4 text-left'>
                             Phone : <br />
                             +880 1722092675
                         </h2>
                     </div>
-                    <div className='rounded-lg p-5 flex items-end gap-6'>
+                    <div className='rounded-lg p-5 flex lg:justify-start justify-center items-end gap-6'>
                         <img src={email} alt="" className='w-10' />
-                        <h2 className='text-black font-semibold mt-4 lg:text-left text-center'>
+                        <h2 className='text-black font-semibold mt-4 text-left'>
                             Email : <br />
                             fardus.dev@gmail.com
                         </h2>
                     </div>
-                    <div className='rounded-lg p-5 flex items-end gap-6'>
+                    <div className='rounded-lg p-5 flex lg:justify-start justify-center items-end gap-6'>
                         <img src={map} alt=""  className='w-10 pb-5'/>
-                        <h2 className='text-black font-semibold mt-4 lg:text-left text-center'>
+                        <h2 className='text-black font-semibold mt-4 text-left'>
                             Location : <br />
                             Gazipur District, Dhaka, <br /> Bangladesh
                         </h2>
                     </div>
                 </div>
                 </div>
-                <form className='col-span-2 lg:p-10 sm:p-6 p-4 w-[50%]' onSubmit={handleSubmit(onSubmit)}>
+                <form className='col-span-2 lg:p-10 sm:p-6 p-4 lg:w-[60%] xl:w-[50%]' onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid md:grid-cols-2 lg:gap-8 sm:gap-5 gap-3'>
                         <div className="mt-4">
                             <label className="block mb-2 text-sm font-medium text-black" htmlFor="yourName">Your Name</label>
@@ -106,7 +106,7 @@ const Contact = () => {
                             id="message" className="block w-full h-[125px] px-4 py-3 text-black rounded-lg border border-opacity-20 border-secColor outline-none" type="text" />
                         {errors.message && <span className="text-xs text-red-500">This field is required</span> || <span className="text-xs text-red-500">{error}</span>}
                     </div>
-                    <div className="mt-8 rounded-lg md:w-[50%]">
+                    <div className="mt-8 rounded-lg md:w-[50%] lg:mx-0 mx-auto">
                         <button className="group block relative h-12 w-full overflow-hidden overflow-x-hidden rounded-md bg-secColor px-8 py-2 text-neutral-50"><span className="relative z-10 font-jost font-semibold ">Sent Message</span><span className="absolute inset-0 overflow-hidden rounded-md"><span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full gradient-button transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150"></span></span></button>
                     </div>
                 </form>
