@@ -5,7 +5,6 @@ import CountUp from "react-countup";
 import useGithubLifetimeCommits from "../../hooks/useGithubLifetimeCommits";
 
 const About = () => {
-  // Memoize env vars + options
   const username = useMemo(() => import.meta.env.VITE_GITHUB_USERNAME || "fardus-hassan", []);
   const token = useMemo(() => import.meta.env.VITE_GITHUB_TOKEN, []);
   const threshold = 0.1;
