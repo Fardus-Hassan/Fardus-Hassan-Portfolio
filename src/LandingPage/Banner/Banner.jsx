@@ -42,7 +42,7 @@ const Banner = () => {
                             <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>Hi <span className="wave">👋</span> I’m Fardus Hassan <br /> A <Typewriter
-                                    words={['Front-end Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
+                                    words={['Front-End Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
                                     typeSpeed={50}
                                     deleteSpeed={20}
                                     delaySpeed={3000}

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Projects = () => {
     return (
@@ -9,6 +8,19 @@ const Projects = () => {
                     MY RECENT WORK
                 </h1>
                 <section className="mt-10 space-y-8 lg:mt-14 lg:max-h-[75vh] max-h-[90vh] overflow-y-auto scrollBar">
+                    <section className="lg:flex lg:items-center">
+                        <div className="lg:w-1/2">
+                            <p className="text-xl tracking-wider gradient-color font-semibold">Qawmi Talim</p>
+                            <h2 className="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">ERP-based Madrasha Management Software</h2>
+                            <h2 className="mt-4 font-semibold text-gray-800 dark:text-white">User Name: admin_demo <br /> Password: admin123</h2>
+                            <a href='https://demo.qawmitalim.online' target='_blank' className="mt-5 block  font-semibold tracking-wider text-black border w-fit px-2 py-1 rounded-lg hover:text-secColor duration-300 ">View live</a>
+                        </div>
+
+                        <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border ">
+                            <iframe src="https://demo.qawmitalim.online/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
+                        </div>
+                    </section>
+                    <hr />
                     <section className="lg:flex lg:items-center">
                         <div className="lg:w-1/2">
                             <p className="text-xl tracking-wider gradient-color font-semibold">DevDive</p>
