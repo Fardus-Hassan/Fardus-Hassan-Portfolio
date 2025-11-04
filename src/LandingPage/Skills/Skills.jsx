@@ -204,7 +204,7 @@ const Skills = () => {
                 <div className="sm:text-6xl text-3xl mb-4 group-hover:scale-125 transition-transform duration-300">
                   {skill.icon}
                 </div>
-                <h3 className="sm:text-base text-xs font-semibold text-gray-700 text-center font-jost">
+                <h3 className="sm:text-base text-sm font-semibold text-gray-700 text-center font-jost">
                   {skill.name}
                 </h3>
               </div>
