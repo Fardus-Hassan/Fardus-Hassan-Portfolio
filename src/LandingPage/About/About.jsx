@@ -55,14 +55,15 @@ const About = () => {
               Passionate Junior MERN Stack & Front-End Developer
             </h1>
 
-            <div className="max-h-[260px] overflow-y-auto">
-              <p className="font-jost lg:text-lg max-w-[700px] my-8">
-                I am a Front-End Developer and Junior MERN Stack Developer from a Mechanical Engineering background. Passionate about programming, I have strong skills in HTML, CSS, Tailwind, JavaScript, and React, with experience in Firebase Authentication, Git, and GitHub.
-              </p>
-              <p className="font-jost lg:text-lg max-w-[700px]">
-                I am also learning Node.js, Express.js, MongoDB, JWT, Next.js, and various component libraries. Based in Joydebpur, Gazipur, Bangladesh, I am eager to grow and contribute to web development.
-              </p>
-            </div>
+<div className="">
+  <p className="font-jost lg:text-lg max-w-[715px] my-8">
+    I am a Front-End Developer and Junior MERN Stack Developer from a Mechanical Engineering background. I have strong expertise in HTML5, CSS3, Tailwind CSS, Bootstrap 5, JavaScript, TypeScript, React.js, Next.js, Redux, REST API integration, and Firebase Authentication. I am also learning React Native and actively applying my skills to mobile app development.
+  </p>
+  <p className="font-jost lg:text-lg max-w-[700px]">
+    On the backend, I have experience with Node.js, Express.js, and MongoDB. I am comfortable with tools like VS Code, Cursor, Git, GitHub, Vercel, Figma, and Netlify. Based in Joydebpur, Gazipur, Bangladesh, I am passionate about building both web and mobile applications and continuously improving my development skills.
+  </p>
+</div>
+
 
             <div className="mt-8 flex justify-between items-center gap-8 flex-wrap w-full">
               <div ref={ref1}>

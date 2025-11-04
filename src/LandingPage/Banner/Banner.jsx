@@ -10,7 +10,7 @@ import next from "../../assets/next.js.png"
 import js from "../../assets/js.png"
 import react from "../../assets/react.png"
 import typescript from "../../assets/typescript.png"
-import redux from "../../assets/Redux.png"
+import redux from "../../assets/typescript.png"
 import PDF from "../../assets/Junior_Developer_Fardus_Hassan_Resume .pdf"
 
 const Banner = () => {
@@ -41,7 +41,7 @@ const Banner = () => {
                         <div className="transition-transform duration-500 text-left ease-out">
                             <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
-                            }}>Hi👋 I’m Fardus Hassan <br /> A <Typewriter
+                            }}>Hi <span className="wave">👋</span> I’m Fardus Hassan <br /> A <Typewriter
                                     words={['Front-end Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
                                     typeSpeed={50}
                                     deleteSpeed={20}
@@ -53,7 +53,23 @@ const Banner = () => {
                                 /></h1>
                             <p className='max-w-[800px] text-left duration-300 ease-out block text-white lg:text-[16px] text-[14px] sm:my-16 my-10 jost-regular' style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
-                            }}>I am a passionate front-end developer and junior MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in web development, continuously learning and exploring new technologies.</p>
+                            }}>I am a passionate front-end developer and junior MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
+                             <style jsx>{`
+        .wave {
+          display: inline-block;
+          transform-origin: 70% 70%;
+          animation: wave 2s infinite;
+        }
+        @keyframes wave {
+          0% { transform: rotate(0deg); }
+          15% { transform: rotate(14deg); }
+          30% { transform: rotate(-8deg); }
+          45% { transform: rotate(14deg); }
+          60% { transform: rotate(-4deg); }
+          75% { transform: rotate(10deg); }
+          100% { transform: rotate(0deg); }
+        }
+      `}</style>
                             <div className='flex sm:flex-row-reverse flex-col-reverse xl:justify-end justify-between sm:items-center items-start xl:gap-32 gap-10 duration-300 ease-out' style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>
@@ -81,6 +97,8 @@ const Banner = () => {
             <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation'  src={typescript} alt="" />
             <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={next} alt="" />
         </div>
+
+        
     );
 };
 
