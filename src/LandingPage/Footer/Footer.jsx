@@ -5,11 +5,6 @@ import { IoLogoWhatsapp } from "react-icons/io";
 
 const Footer = () => {
 
-
-    const date = new Date()
-    let year = date.getFullYear(); // 2024
-
-
     return (
         <footer className="font-jost shadow-2xl">
             <div className="py-8 w-[90%] mx-auto">
@@ -56,7 +51,7 @@ const Footer = () => {
                 <hr className="my-6 border-gray-300 md:my-10" />
 
                 <div className="container mx-auto flex flex-col items-center sm:flex-row sm:justify-between gap-5">
-                    <p className="text-sm text-gray-700">© Copyright {year}. All Rights Reserved.</p>
+                    <p className="text-sm text-gray-700">© Copyright 2024. All Rights Reserved.</p>
 
                     <div className="flex items-center gap-4">
                         <a href='https://github.com/Fardus-Hassan' target="_blank" aria-label="Github">

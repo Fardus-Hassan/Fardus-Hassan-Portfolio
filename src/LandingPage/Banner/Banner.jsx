@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { LuGithub } from "react-icons/lu";
 import { FaFacebookF } from "react-icons/fa";
@@ -6,11 +6,12 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { MdFileDownload } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import myimg from "../../assets/InShot_20240703_024351363.jpg"
-import css from "../../assets/css.png"
+import next from "../../assets/next.js.png"
 import js from "../../assets/js.png"
 import react from "../../assets/react.png"
-import tailwind from "../../assets/tailwind.png"
-import PDF from "../../assets/Fardus_Hassan_Resume.pdf"
+import typescript from "../../assets/typescript.png"
+import redux from "../../assets/Redux.png"
+import PDF from "../../assets/Junior_Developer_Fardus_Hassan_Resume .pdf"
 
 const Banner = () => {
 
@@ -41,7 +42,7 @@ const Banner = () => {
                             <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>Hi👋 I’m Fardus Hassan <br /> A <Typewriter
-                                    words={['Front-end Web Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
+                                    words={['Front-end Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
                                     typeSpeed={50}
                                     deleteSpeed={20}
                                     delaySpeed={3000}
@@ -77,8 +78,8 @@ const Banner = () => {
             </div>
             <img className='absolute top-8 left-5 lg:w-20 w-12 float-animation' src={react} alt="" />
             <img className='absolute top-8 right-5 lg:w-[70px] w-12 rounded-xl float-animation' src={js} alt="" />
-            <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation'  src={tailwind} alt="" />
-            <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={css} alt="" />
+            <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation'  src={typescript} alt="" />
+            <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={next} alt="" />
         </div>
     );
 };
