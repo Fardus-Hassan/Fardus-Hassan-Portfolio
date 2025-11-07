@@ -42,7 +42,7 @@ const Banner = () => {
                             <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>Hi <span className="wave">👋</span> I’m Fardus Hassan <br /> A <Typewriter
-                                    words={['Front-End Developer', 'Junior MERN Stack Developer', 'Quick Learner']}
+                                    words={['Front-End Developer', 'MERN Stack Developer', 'Quick Learner']}
                                     typeSpeed={50}
                                     deleteSpeed={20}
                                     delaySpeed={3000}
@@ -53,7 +53,7 @@ const Banner = () => {
                                 /></h1>
                             <p className='max-w-[800px] text-left duration-300 ease-out block text-white lg:text-[16px] text-[14px] sm:my-16 my-10 jost-regular' style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
-                            }}>I am a passionate front-end developer and junior MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
+                            }}>I am a passionate front-end developer and MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
                              <style jsx>{`
         .wave {
           display: inline-block;
