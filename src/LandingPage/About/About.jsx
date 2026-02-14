@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import aboutme from "../../assets/IMG_20240705_012920.png";
 import CountUp from "react-countup";
 import useGithubLifetimeCommits from "../../hooks/useGithubLifetimeCommits";
@@ -90,7 +90,7 @@ const About = () => {
 
               <div ref={ref3}>
                 <span className="font-jost font-bold lg:text-3xl text-2xl gradient-color">
-                  {isVisible3 ? <CountUp end={1} duration={4} suffix="+" /> : "1+"}
+                  {isVisible3 ? <CountUp end={2} duration={4} suffix="+" /> : "2+"}
                 </span>
                 <h3 className="font-jost lg:text-xl text-lg font-medium">Job Experience</h3>
               </div>

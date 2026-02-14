@@ -20,6 +20,17 @@ const Projects = () => {
                             <iframe src="https://demo.qawmitalim.online/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
                         </div>
                     </section>
+                    <section className="lg:flex lg:items-center">
+                        <div className="lg:w-1/2">
+                            <p className="text-xl tracking-wider gradient-color font-semibold">Cian Collective</p>
+                            <h2 className="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">Faith-based spiritual music collective website</h2>
+                            <a href='https://www.ciancollective.org' target='_blank' className="mt-5 block  font-semibold tracking-wider text-black border w-fit px-2 py-1 rounded-lg hover:text-secColor duration-300 ">View live</a>
+                        </div>
+
+                        <div className="mt-4 lg:w-full lg:mt-0 rounded-xl border ">
+                            <iframe src="https://www.ciancollective.org/" className='w-[100%] h-[500px] rounded-xl border'></iframe>
+                        </div>
+                    </section>
                     <hr />
                     <section className="lg:flex lg:items-center">
                         <div className="lg:w-1/2">

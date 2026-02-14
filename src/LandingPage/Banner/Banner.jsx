@@ -10,8 +10,7 @@ import next from "../../assets/next.js.png"
 import js from "../../assets/js.png"
 import react from "../../assets/react.png"
 import typescript from "../../assets/typescript.png"
-import redux from "../../assets/typescript.png"
-import PDF from "../../assets/Junior_Developer_Fardus_Hassan_Resume .pdf"
+import PDF from "../../assets/Frontend_Developer_Fardus_Hassan .pdf"
 
 const Banner = () => {
 
