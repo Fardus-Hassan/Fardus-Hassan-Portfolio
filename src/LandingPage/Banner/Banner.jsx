@@ -10,7 +10,7 @@ import next from "../../assets/next.js.png"
 import js from "../../assets/js.png"
 import react from "../../assets/react.png"
 import typescript from "../../assets/typescript.png"
-import PDF from "../../assets/Frontend_Developer_Fardus_Hassan .pdf"
+import PDF from "../../assets/Junior_Software_Engineer_Fardus_Hassan .pdf"
 
 const Banner = () => {
 
@@ -28,7 +28,7 @@ const Banner = () => {
         };
     }, []);
 
-    
+
 
     return (
         <div className='banner xl:py-[140px] py-10 relative duration-300 ease-out sm:mb-[150px] mb-20' style={{
@@ -53,7 +53,7 @@ const Banner = () => {
                             <p className='max-w-[800px] text-left duration-300 ease-out block text-white lg:text-[16px] text-[14px] sm:my-16 my-10 jost-regular' style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>I am a passionate front-end developer and MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
-                             <style jsx>{`
+                            <style jsx>{`
         .wave {
           display: inline-block;
           transform-origin: 70% 70%;
@@ -93,11 +93,11 @@ const Banner = () => {
             </div>
             <img className='absolute top-8 left-5 lg:w-20 w-12 float-animation' src={react} alt="" />
             <img className='absolute top-8 right-5 lg:w-[70px] w-12 rounded-xl float-animation' src={js} alt="" />
-            <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation'  src={typescript} alt="" />
+            <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation' src={typescript} alt="" />
             <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={next} alt="" />
         </div>
 
-        
+
     );
 };
 
