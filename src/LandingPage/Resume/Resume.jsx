@@ -195,7 +195,8 @@ function CourseCard({ course, index }) {
             </a>
           </>
         ) : (
-          <span className="text-gray-400"> · {course.certificateLabel}</span>
+          // · {course.certificateLabel}
+          <span className="text-gray-400"></span>
         )}
       </p>
       <p className="relative text-gray-600 font-jost leading-relaxed">
