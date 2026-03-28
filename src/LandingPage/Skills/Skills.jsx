@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { SectionReveal } from "../../Components/SectionReveal";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -118,7 +119,7 @@ const Skills = () => {
   }, [activeTab]);
 
   return (
-    <section id="skills" className="skills-section overflow-hidden">
+    <SectionReveal as="section" id="skills" className="skills-section overflow-hidden">
       <div className="sm:mb-16 mb-12 text-center mx-auto">
         <h3 className="font-bold font-jost lg:text-xl gradient-color">
           &lt;Skills/&gt;
@@ -263,7 +264,7 @@ const Skills = () => {
 
         /* Hover lift effect already in Tailwind */
       `}</style>
-    </section>
+    </SectionReveal>
   );
 };
 

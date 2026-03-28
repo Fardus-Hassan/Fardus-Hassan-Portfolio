@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { SectionReveal } from "../../Components/SectionReveal";
 import aboutme from "../../assets/IMG_20240705_012920.png";
 import CountUp from "react-countup";
 import useGithubLifetimeCommits from "../../hooks/useGithubLifetimeCommits";
@@ -36,7 +37,7 @@ const About = () => {
   const [ref3, isVisible3] = useOnScreen({ threshold: 0.1 });
 
   return (
-    <div id="about" className="xl:w-[95%] mx-auto">
+    <SectionReveal id="about" className="xl:w-[95%] mx-auto">
       <div className="xl:container w-[90%] mx-auto lg:mb-[150px] sm:mb-[100px] mb-20 ">
         <div className="flex lg:flex-row-reverse flex-col justify-between items-center lg:gap-20 gap-10">
           <div className="banner rounded-full md:w-[500px] w-[300px] md:h-[600px] h-[400px] relative">
@@ -98,7 +99,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </SectionReveal>
   );
 };
 

@@ -1,3 +1,4 @@
+import { SectionReveal } from "../../Components/SectionReveal";
 import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
@@ -38,7 +39,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="font-jost relative mt-4 overflow-hidden">
+    <SectionReveal as="footer" className="font-jost relative mt-4 overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden
@@ -138,7 +139,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </SectionReveal>
   );
 };
 

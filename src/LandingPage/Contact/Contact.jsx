@@ -1,4 +1,5 @@
 // src/components/Contact.jsx
+import { SectionReveal } from '../../Components/SectionReveal';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
@@ -49,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <div id='contact' className='xl:container max-w-[90%] lg:my-[150px] lg:mt-[150px] sm:my-[100px] my-20 xl:w-[95%] mx-auto'>
+    <SectionReveal id="contact" className='xl:container max-w-[90%] lg:my-[150px] lg:mt-[150px] sm:my-[100px] my-20 xl:w-[95%] mx-auto'>
       <div className='lg:flex justify-between items-center'>
         {/* Left Side */}
         <div className='lg:mx-0 mx-auto lg:text-left text-center'>
@@ -159,7 +160,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </div>
+    </SectionReveal>
   );
 };
 

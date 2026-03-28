@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types -- section helpers are internal; data is static */
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { SectionReveal } from "../../Components/SectionReveal";
 
 const experiences = [
   {
@@ -206,13 +207,10 @@ function CourseCard({ course, index }) {
 
 const Resume = () => {
   return (
-    <div
-      id="resume"
-      className="xl:w-[95%] mx-auto scroll-mt-28"
-    >
+    <div id="resume" className="xl:w-[95%] mx-auto scroll-mt-28">
       <div className="xl:container w-[90%] mx-auto lg:mb-[150px] sm:mb-[100px] mb-20">
         {/* Experience */}
-        <section id="experience" className="scroll-mt-28">
+        <SectionReveal as="section" id="experience" className="scroll-mt-28">
           <SectionIntro
             kicker="<Experience/>"
             headline="Experience"
@@ -223,10 +221,15 @@ const Resume = () => {
               <ExperienceCard key={job.company} job={job} />
             ))}
           </div>
-        </section>
+        </SectionReveal>
 
         {/* Courses */}
-        <section id="courses" className="mt-20 lg:mt-28 scroll-mt-28">
+        <SectionReveal
+          as="section"
+          id="courses"
+          className="mt-20 lg:mt-28 scroll-mt-28"
+          delay={0.04}
+        >
           <SectionIntro
             kicker="<Courses/>"
             headline="Courses"
@@ -237,10 +240,15 @@ const Resume = () => {
               <CourseCard key={course.title} course={course} index={i} />
             ))}
           </div>
-        </section>
+        </SectionReveal>
 
         {/* Education */}
-        <section id="education" className="mt-20 lg:mt-28 scroll-mt-28">
+        <SectionReveal
+          as="section"
+          id="education"
+          className="mt-20 lg:mt-28 scroll-mt-28"
+          delay={0.06}
+        >
           <SectionIntro
             kicker="<Education/>"
             headline="Education"
@@ -267,7 +275,7 @@ const Resume = () => {
               </div>
             </div>
           </div>
-        </section>
+        </SectionReveal>
       </div>
     </div>
   );
