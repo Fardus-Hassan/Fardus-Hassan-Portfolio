@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FaCode } from "react-icons/fa6";
 
 const Nav = () => {
 
@@ -75,6 +74,12 @@ const Nav = () => {
                             href="#about"
                         >
                             About
+                        </a>
+                        <a
+                            className="text-black hover:text-pmColor duration-300"
+                            href="#experience"
+                        >
+                            Experience
                         </a>
                         <a
                             className="text-black hover:text-pmColor duration-300"
