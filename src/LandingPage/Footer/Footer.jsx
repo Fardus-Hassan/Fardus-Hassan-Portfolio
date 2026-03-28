@@ -38,13 +38,13 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="font-jost relative mt-4 overflow-hidden border-t border-gray-200/80">
+    <footer className="font-jost relative mt-4 overflow-hidden">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(88,70,242,0.12),transparent)]"
+        className="pointer-events-none absolute inset-0"
         aria-hidden
       />
       <div className="relative xl:container w-[90%] mx-auto pt-14 pb-8 lg:pt-16 lg:pb-10">
-        <div className="grid gap-12 lg:gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="liquid-glass rounded-3xl p-8 lg:p-10 lg:pb-12 grid gap-12 lg:gap-10 lg:grid-cols-12 lg:items-start">
           {/* Brand */}
           <div className="lg:col-span-5 text-center lg:text-left">
             <a

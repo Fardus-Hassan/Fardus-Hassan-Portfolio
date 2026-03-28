@@ -23,9 +23,176 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --page-bg: #f7f6fb;
+}
 
 body {
-  background: white;
+  background: var(--page-bg);
+  color: #111827;
+}
+
+/* Marquee edge fade: match page base (not pure white) so it blends with liquid-page-bg */
+.skills-marquee-fade {
+  background: linear-gradient(
+    to right,
+    var(--page-bg) 0%,
+    rgba(126, 4, 207, 0) 20%,
+    rgba(105, 38, 131, 0) 80%,
+    var(--page-bg) 100%
+  );
+}
+
+/* Soft animated mesh behind page content (pairs with .liquid-page-bg wrapper) */
+.liquid-page-bg {
+  position: relative;
+  min-height: 100vh;
+}
+
+.liquid-page-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 8% 0%, rgba(88, 70, 242, 0.11), transparent 52%),
+    radial-gradient(ellipse 90% 70% at 92% 15%, rgba(220, 126, 236, 0.1), transparent 48%),
+    radial-gradient(ellipse 100% 55% at 50% 100%, rgba(88, 70, 242, 0.07), transparent 55%);
+  animation: liquidMeshShift 24s ease-in-out infinite alternate;
+}
+
+@keyframes liquidMeshShift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1.5%, -1%) scale(1.03);
+    opacity: 0.92;
+  }
+}
+
+/**
+ * Apple-style frosted glass + hover shine.
+ * Optional: mark decorative blurs with .liquid-glass-bg so they sit under copy.
+ */
+.liquid-glass {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 14px 40px rgba(88, 70, 242, 0.07),
+    0 4px 14px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(26px) saturate(175%);
+  -webkit-backdrop-filter: blur(26px) saturate(175%);
+  transition:
+    box-shadow 0.45s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.liquid-glass:hover {
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 1) inset,
+    0 20px 48px rgba(88, 70, 242, 0.11),
+    0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.liquid-glass > *:not(.liquid-glass-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-glass-bg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0 !important;
+}
+
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  top: -55%;
+  left: -120%;
+  width: 52%;
+  height: 210%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 34%,
+    rgba(255, 255, 255, 0.48) 47%,
+    rgba(255, 255, 255, 0.12) 54%,
+    transparent 68%
+  );
+  transform: skewX(-15deg) translateX(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition:
+    transform 0.82s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+}
+
+.liquid-glass:hover::after,
+.liquid-glass:focus-within::after {
+  transform: skewX(-15deg) translateX(320%);
+  opacity: 1;
+}
+
+/* On gradient / dark hero (banner) */
+.liquid-glass--hero {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 16px 44px rgba(0, 0, 0, 0.12);
+}
+
+.liquid-glass--hero:hover {
+  border-color: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.liquid-glass--hero::after {
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 28%,
+    rgba(255, 255, 255, 0.38) 46%,
+    rgba(255, 255, 255, 0.1) 54%,
+    transparent 70%
+  );
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .liquid-glass--hero {
+    background: rgba(45, 35, 85, 0.88);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-page-bg::before {
+    animation: none;
+  }
+
+  .liquid-glass::after {
+    transition: none;
+  }
+
+  .liquid-glass:hover::after,
+  .liquid-glass:focus-within::after {
+    opacity: 0;
+    transform: skewX(-15deg) translateX(0);
+  }
 }
 
 @keyframes gradient {

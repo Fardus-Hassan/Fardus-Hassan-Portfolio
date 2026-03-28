@@ -130,7 +130,10 @@ const Skills = () => {
 
       {/* Animated Marquee Section */}
       <div className="mb-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none"></div>
+        <div
+          className="skills-marquee-fade absolute inset-0 z-10 pointer-events-none"
+          aria-hidden
+        />
         <div className="flex overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...allSkills, ...allSkills].map((skill, idx) => (
@@ -184,9 +187,9 @@ const Skills = () => {
               <div
                 key={`${activeTab}-${idx}`}
                 className={`
-                group flex flex-col items-center p-6 bg-white rounded-2xl 
-                shadow-md hover:shadow-xl transition-all duration-300 
-                hover:-translate-y-2 border border-gray-100
+                liquid-glass group flex flex-col items-center p-6 rounded-2xl
+                transition-all duration-300
+                hover:-translate-y-2
                 ${
                   isAnimating
                     ? "animate-staggerItem"

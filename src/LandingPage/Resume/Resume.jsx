@@ -125,7 +125,7 @@ function ExperienceCard({ job }) {
           </p>
         </div>
 
-        <div className="lg:col-span-4 space-y-4 p-5 rounded-2xl bg-gray-50/80 border border-gray-100/80 backdrop-blur-sm">
+        <div className="liquid-glass lg:col-span-4 space-y-4 p-5 rounded-2xl">
           <MetaRow label="Position">{job.position}</MetaRow>
           <MetaRow label="Location">{job.location}</MetaRow>
           <MetaRow label="Industry">{job.industry}</MetaRow>
@@ -165,8 +165,8 @@ function ExperienceCard({ job }) {
 
 function CourseCard({ course, index }) {
   return (
-    <article className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secColor/10 to-pmColor/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+    <article className="liquid-glass relative overflow-hidden rounded-2xl p-6 sm:p-8">
+      <div className="liquid-glass-bg top-0 right-0 w-32 h-32 bg-gradient-to-br from-secColor/10 to-pmColor/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
       <div className="relative flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-secColor">
           Course {String(index + 1).padStart(2, "0")}
@@ -246,8 +246,8 @@ const Resume = () => {
             headline="Education"
             subline="Formal technical training that sharpened problem-solving and hands-on execution before I focused on software."
           />
-          <div className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gradient-to-br from-white via-gray-50/50 to-white p-8 sm:p-10 lg:p-12 shadow-sm">
-            <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-gradient-to-tr from-pmColor/15 to-secColor/15 blur-3xl pointer-events-none" />
+          <div className="liquid-glass relative overflow-hidden rounded-3xl p-8 sm:p-10 lg:p-12">
+            <div className="liquid-glass-bg -right-20 -bottom-20 w-64 h-64 rounded-full bg-gradient-to-tr from-pmColor/15 to-secColor/15 blur-3xl" />
             <div className="relative grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               <div className="lg:col-span-5 space-y-4">
                 <h3 className="text-2xl font-bold font-jost text-gray-900 leading-tight">
