@@ -79,7 +79,7 @@ function SectionIntro({ kicker, headline, subline }) {
     <header className="mb-12 lg:mb-16">
       <p className="font-bold font-jost lg:text-xl gradient-color">{kicker}</p>
       <div className="mt-4 flex flex-col sm:flex-row sm:items-end sm:gap-6 gap-3">
-        <h2 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-bold font-jost uppercase tracking-[0.12em] text-gray-900 leading-tight">
+        <h2 className="text-2xl lg:text-[44px] text-[30px] font-bold font-jost uppercase tracking-[0.12em] text-gray-900 leading-tight">
           {headline}
         </h2>
         <div
@@ -111,7 +111,7 @@ function ExperienceCard({ job }) {
   return (
     <article className="group relative border-b border-gray-100 pb-12 lg:pb-16 last:border-0 last:pb-0">
       <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-secColor to-pmColor opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-3 hidden lg:block" />
-      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-jost text-gray-900 mb-8 lg:mb-10">
+      <h3 className="text-xl sm:text-2xl font-bold font-jost text-gray-900 mb-8 lg:mb-10">
         {job.company}
       </h3>
 
@@ -250,7 +250,7 @@ const Resume = () => {
             <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-gradient-to-tr from-pmColor/15 to-secColor/15 blur-3xl pointer-events-none" />
             <div className="relative grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               <div className="lg:col-span-5 space-y-4">
-                <h3 className="text-2xl sm:text-3xl font-bold font-jost text-gray-900 leading-tight">
+                <h3 className="text-2xl font-bold font-jost text-gray-900 leading-tight">
                   {education.degree}
                 </h3>
                 <p className="text-sm font-semibold text-gray-500 tracking-wide">

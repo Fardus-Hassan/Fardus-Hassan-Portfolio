@@ -31,7 +31,8 @@ const Banner = () => {
 
 
     return (
-        <div className='banner xl:py-[140px] py-10 relative duration-300 ease-out sm:mb-[150px] mb-20' style={{
+        <div id='home' className='banner pt-20'>
+            <div className='xl:py-[140px] py-10 relative duration-300 ease-out sm:mb-[150px] mb-20' style={{
             transform: `translateY(${scrollPosition / -10}px)`
         }}>
             <div className='container flex flex-col justify-center h-full 2xl:w-[80%] xl:w-[90%] w-[90%] mx-auto'>
@@ -41,7 +42,7 @@ const Banner = () => {
                             <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }}>Hi <span className="wave">👋</span> I’m Fardus Hassan <br /> A <Typewriter
-                                    words={['Front-End Developer', 'MERN Stack Developer', 'Quick Learner']}
+                                    words={['Software Developer','MERN Stack Developer', 'Front-End Developer', 'Quick Learner']}
                                     typeSpeed={50}
                                     deleteSpeed={20}
                                     delaySpeed={3000}
@@ -52,7 +53,7 @@ const Banner = () => {
                                 /></h1>
                             <p className='max-w-[800px] text-left duration-300 ease-out block text-white lg:text-[16px] text-[14px] sm:my-16 my-10 jost-regular' style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
-                            }}>I am a passionate front-end developer and MERN stack developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
+                            }}>I am a passionate software developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
                             <style jsx>{`
         .wave {
           display: inline-block;
@@ -95,6 +96,7 @@ const Banner = () => {
             <img className='absolute top-8 right-5 lg:w-[70px] w-12 rounded-xl float-animation' src={js} alt="" />
             <img className='absolute bottom-5 right-5 lg:w-20 w-12 float-animation' src={typescript} alt="" />
             <img className='absolute bottom-5 left-5 lg:w-20 w-12 float-animation' src={next} alt="" />
+        </div>
         </div>
 
 
