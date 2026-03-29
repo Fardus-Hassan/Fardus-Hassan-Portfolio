@@ -47,7 +47,7 @@ const BannerEditorial = () => {
   return (
     <section
       id="home"
-      className="hero-editorial relative z-[1] min-h-[100svh] scroll-mt-28 overflow-hidden bg-transparent pb-12 pt-[max(5rem,env(safe-area-inset-top)+4.25rem)] sm:pb-14 sm:pt-[max(5.75rem,env(safe-area-inset-top)+4.75rem)] lg:flex lg:min-h-[min(100svh,900px)] lg:items-center lg:pb-16 lg:pt-[max(6.25rem,env(safe-area-inset-top)+5rem)]"
+      className="hero-editorial lg:mt-0 mt-10 relative z-[1] min-h-[100svh] scroll-mt-28 overflow-hidden bg-transparent pb-12 pt-[max(5rem,env(safe-area-inset-top)+4.25rem)] sm:pb-14 sm:pt-[max(5.75rem,env(safe-area-inset-top)+4.75rem)] lg:flex lg:min-h-[min(100svh,900px)] lg:items-center lg:pb-16 lg:pt-[max(6.25rem,env(safe-area-inset-top)+5rem)]"
     >
       <svg
         className="pointer-events-none absolute left-[-6%] top-[14%] z-[2] hidden h-[min(50vh,400px)] w-[min(38vw,260px)] text-gray-400/45 opacity-50 lg:block"
