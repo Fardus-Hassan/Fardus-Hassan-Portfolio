@@ -24,7 +24,7 @@ html {
 }
 
 :root {
-  --page-bg: #f7f6fb;
+  --page-bg: #eae8e4;
 }
 
 body {
@@ -37,8 +37,8 @@ body {
   background: linear-gradient(
     to right,
     var(--page-bg) 0%,
-    rgba(126, 4, 207, 0) 20%,
-    rgba(105, 38, 131, 0) 80%,
+    rgba(234, 232, 228, 0) 20%,
+    rgba(234, 232, 228, 0) 80%,
     var(--page-bg) 100%
   );
 }
@@ -354,4 +354,301 @@ body {
 .scrollBar:hover::-webkit-scrollbar-thumb:hover {
   background-color: #5846F2;
   /* Darker color on thumb hover */
+}
+
+/* Projects “Pick a project” — slim editorial scrollbar (lg vertical list) */
+.editorial-picker-scroll {
+  scrollbar-gutter: stable;
+}
+
+.editorial-picker-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.editorial-picker-scroll::-webkit-scrollbar-track {
+  margin: 6px 0;
+  background: rgba(0, 0, 0, 0.045);
+  border-radius: 999px;
+}
+
+.editorial-picker-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background-color: rgba(17, 24, 39, 0.2);
+  transition: background-color 0.2s ease, border-width 0.15s ease;
+}
+
+.editorial-picker-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(5, 120, 85, 0.55);
+}
+
+.editorial-picker-scroll::-webkit-scrollbar-thumb:active {
+  background-color: rgba(17, 24, 39, 0.45);
+}
+
+@supports (scrollbar-width: thin) {
+  .editorial-picker-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(17, 24, 39, 0.28) rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (max-width: 1023px) {
+  .editorial-picker-scroll {
+    scrollbar-gutter: auto;
+  }
+}
+
+/* —— Editorial hero (BannerEditorial): grain + soft aura blobs —— */
+.hero-editorial-blobs::before,
+.hero-editorial-blobs::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  animation: editorialBlobDrift 18s ease-in-out infinite alternate;
+}
+
+.hero-editorial-blobs::before {
+  width: min(55vw, 420px);
+  height: min(55vw, 420px);
+  left: -8%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(244, 180, 200, 0.65) 0%, transparent 70%);
+}
+
+.hero-editorial-blobs::after {
+  width: min(70vw, 520px);
+  height: min(70vw, 520px);
+  right: -12%;
+  bottom: -5%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.5) 0%, transparent 68%);
+  animation-delay: -6s;
+}
+
+@keyframes editorialBlobDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(2%, -2%) scale(1.06);
+  }
+}
+
+.hero-editorial-grain {
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-editorial-blobs::before,
+  .hero-editorial-blobs::after {
+    animation: none;
+  }
+}
+
+/* Banner “Let’s talk” circular label — spin in place (clockwise), center of the button */
+@keyframes banner-circle-text-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.banner-circle-text-spin {
+  transform-origin: 50% 50%;
+  animation: banner-circle-text-spin 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-circle-text-spin {
+    animation: none;
+  }
+}
+
+/* —— Full-site editorial theme (matches BannerEditorial) —— */
+.editorial-page {
+  --ed-bg: #eae8e4;
+  --ed-fg: #141414;
+  --ed-muted: #5c5a56;
+  --ed-line: rgba(20, 20, 20, 0.08);
+  --ed-card: rgba(255, 255, 255, 0.5);
+  background-color: var(--ed-bg);
+  color: var(--ed-fg);
+  min-height: 100vh;
+}
+
+.editorial-page-blobs::before,
+.editorial-page-blobs::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+  animation: editorialBlobDrift 22s ease-in-out infinite alternate;
+}
+
+.editorial-page-blobs::before {
+  width: min(58vw, 440px);
+  height: min(58vw, 440px);
+  left: -10%;
+  top: 5%;
+  background: radial-gradient(circle, rgba(244, 180, 200, 0.55) 0%, transparent 72%);
+}
+
+.editorial-page-blobs::after {
+  width: min(72vw, 540px);
+  height: min(72vw, 540px);
+  right: -14%;
+  bottom: 0%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.42) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+.editorial-page-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='en'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23en)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.editorial-section {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .editorial-section {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+.editorial-kicker {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ed-muted);
+}
+
+.editorial-title {
+  margin-top: 0.75rem;
+  font-size: clamp(1.875rem, 4.2vw, 2.875rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ed-fg);
+}
+
+.editorial-subtitle {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ed-muted);
+}
+
+@media (min-width: 1024px) {
+  .editorial-subtitle {
+    font-size: 1.0625rem;
+  }
+}
+
+.editorial-rule {
+  height: 1px;
+  max-width: 14rem;
+  background: linear-gradient(to right, rgba(20, 20, 20, 0.2), transparent);
+}
+
+.editorial-card {
+  background: var(--ed-card);
+  border: 1px solid var(--ed-line);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 40px rgba(0, 0, 0, 0.04);
+}
+
+.editorial-card:hover {
+  border-color: rgba(20, 20, 20, 0.12);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75) inset, 0 16px 48px rgba(0, 0, 0, 0.06);
+}
+
+.editorial-glass {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.editorial-marquee-fade {
+  background: linear-gradient(
+    to right,
+    #eae8e4 0%,
+    rgba(234, 232, 228, 0) 18%,
+    rgba(234, 232, 228, 0) 82%,
+    #eae8e4 100%
+  );
+}
+
+.editorial-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--ed-fg);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editorial-input:focus {
+  border-color: rgba(20, 20, 20, 0.28);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+@keyframes editorialMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-editorial-marquee {
+  animation: editorialMarquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-page-blobs::before,
+  .editorial-page-blobs::after {
+    animation: none;
+  }
+
+  .animate-editorial-marquee {
+    animation: none;
+  }
 }

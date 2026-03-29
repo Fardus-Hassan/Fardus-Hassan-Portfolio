@@ -1,0 +1,51 @@
+export const editorialProjects = [
+  {
+    name: "Qawmi Talim",
+    title: "ERP-based Madrasha Management Software",
+    lines: ["User Name: admin_demo", "Password: admin123"],
+    liveUrl: "https://demo.qawmitalim.online",
+    iframeSrc: "https://demo.qawmitalim.online/",
+  },
+  {
+    name: "Cian Collective",
+    title: "Faith-based spiritual music collective website",
+    lines: [],
+    liveUrl: "https://www.ciancollective.org",
+    iframeSrc: "https://www.ciancollective.org/",
+  },
+  {
+    name: "DevDive",
+    title: "Developer Forum Website",
+    lines: [],
+    liveUrl: "https://devdive1.netlify.app/",
+    iframeSrc: "https://devdive1.netlify.app/",
+  },
+  {
+    name: "EmployeeFlow",
+    title: "Employee Management Website",
+    lines: [],
+    liveUrl: "https://employee-flow.web.app/",
+    iframeSrc: "https://employee-flow.web.app/",
+  },
+  {
+    name: "EventX",
+    title: "Event Management Website",
+    lines: [],
+    liveUrl: "https://eventx-7378e.web.app/",
+    iframeSrc: "https://eventx-7378e.web.app/",
+  },
+  {
+    name: "Trip Trove",
+    title: "Tourism Spot Viewing Website",
+    lines: [],
+    liveUrl: "https://trip-trove-1d68d.web.app/",
+    iframeSrc: "https://trip-trove-1d68d.web.app/",
+  },
+  {
+    name: "Dream Land",
+    title: "Land viewing website",
+    lines: [],
+    liveUrl: "https://dream-land-17173.web.app/",
+    iframeSrc: "https://dream-land-17173.web.app/",
+  },
+];
