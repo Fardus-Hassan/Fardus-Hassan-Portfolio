@@ -112,7 +112,7 @@ const BannerEditorial = () => {
               first prototype to stable releases in production.
             </p>
 
-            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
+            <div className="flex gap-3 flex-row flex-wrap items-center justify-center">
               <a
                 href="#projects"
                 className="inline-flex min-h-11 items-center justify-center rounded-full bg-gray-950 px-7 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/12 transition-all hover:bg-gray-900 active:scale-[0.99]"
