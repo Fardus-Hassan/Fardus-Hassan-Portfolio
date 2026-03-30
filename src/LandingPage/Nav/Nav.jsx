@@ -187,28 +187,36 @@ const Nav = () => {
           </div>
 
           <div
-            className={`lg:hidden border-t overflow-hidden transition-[max-height,opacity] duration-300 ease-out motion-reduce:transition-none ${
-              scrolled
-                ? "border-white/30 dark:border-white/10"
-                : "border-gray-100 dark:border-gray-800"
-            } ${isOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"}`}
+            className={`grid w-full lg:hidden transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
+              isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            }`}
           >
-            <div className={scrolled ? "" : contentWidth}>
-              <div className="flex flex-col items-center gap-1 px-4 pb-5 pt-2">
-                {links.map(({ label, href }) => (
-                  <a
-                    key={href + label}
-                    href={href}
-                    className={`${linkClass} w-full text-center rounded-xl py-3 ${
-                      scrolled
-                        ? "hover:bg-white/50 dark:hover:bg-white/5"
-                        : "hover:bg-gray-50 dark:hover:bg-gray-900/80"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {label}
-                  </a>
-                ))}
+            <div className="min-h-0 overflow-hidden">
+              <div
+                className={`max-h-[min(70dvh,28rem)] overflow-y-auto overflow-x-hidden overscroll-y-contain border-t ${
+                  scrolled
+                    ? "border-white/30 dark:border-white/10"
+                    : "border-gray-100 dark:border-gray-800"
+                }`}
+              >
+                <div className={scrolled ? "" : contentWidth}>
+                  <div className="flex flex-col items-center gap-1 px-4 pb-5 pt-2">
+                    {links.map(({ label, href }) => (
+                      <a
+                        key={href + label}
+                        href={href}
+                        className={`${linkClass} w-full text-center rounded-xl py-3 ${
+                          scrolled
+                            ? "hover:bg-white/50 dark:hover:bg-white/5"
+                            : "hover:bg-gray-50 dark:hover:bg-gray-900/80"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

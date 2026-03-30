@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
 import { MdFileDownload } from "react-icons/md";
 
@@ -13,10 +13,18 @@ const links = [
 
 const SCROLL_COMPACT_AFTER = 10;
 const SCROLL_EXPAND_BEFORE = 10;
+/** After drawer closes, then drop “fake scroll” so bar can animate back to top */
+const MOBILE_BAR_RESET_MS = 320;
 
 const EditorialNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  /**
+   * Mobile: page at top + user opened menu → bar uses “scrolled” look until menu closes.
+   * Real window scroll still wins via `scrolled`; this only fills in when you weren’t scrolled.
+   */
+  const [forceMobileScrolledLook, setForceMobileScrolledLook] = useState(false);
+  const resetBarTimerRef = useRef(null);
 
   const onScroll = useCallback(() => {
     const y = window.scrollY;
@@ -34,22 +42,76 @@ const EditorialNav = () => {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 1024) setIsOpen(false);
+      if (window.innerWidth >= 1024) {
+        if (resetBarTimerRef.current) {
+          clearTimeout(resetBarTimerRef.current);
+          resetBarTimerRef.current = null;
+        }
+        setForceMobileScrolledLook(false);
+        setIsOpen(false);
+      }
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(
+    () => () => {
+      if (resetBarTimerRef.current) clearTimeout(resetBarTimerRef.current);
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const mq = window.matchMedia("(max-width: 1023px)");
+    if (!isOpen || !mq.matches) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
+
   const linkClass =
     "text-[14px] font-semibold text-gray-800/90 transition-colors duration-200 hover:text-gray-950 py-1";
 
-  const shell = scrolled
+  const barFloated = scrolled || forceMobileScrolledLook;
+
+  const shell = barFloated
     ? "border border-black/[0.08] bg-white/55 shadow-[0_12px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl backdrop-saturate-150"
-    : "border-b border-black/[0.06] backdrop-blur-sm";
+    : "border-b border-black/[0.06] backdrop-blur-xl";
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+    if (resetBarTimerRef.current) clearTimeout(resetBarTimerRef.current);
+    resetBarTimerRef.current = setTimeout(() => {
+      resetBarTimerRef.current = null;
+      setForceMobileScrolledLook(false);
+    }, MOBILE_BAR_RESET_MS);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    if (typeof window === "undefined") return;
+    if (window.innerWidth >= 1024) return;
+
+    if (isOpen) {
+      closeMenu();
+      return;
+    }
+
+    if (resetBarTimerRef.current) {
+      clearTimeout(resetBarTimerRef.current);
+      resetBarTimerRef.current = null;
+    }
+
+    if (!scrolled) setForceMobileScrolledLook(true);
+    setIsOpen(true);
+  };
 
   /**
-   * Below lg, an open drawer on frosted glass + backdrop-blur stacks the hero behind and wrecks contrast.
-   * Switch to an opaque page-colored shell while the menu is open.
+   * Below lg, open drawer uses an opaque shell (frosted + hero behind hurts contrast).
+   * Shell bg/shadow animate with the outer wrapper so the switch doesn’t snap.
    */
   const shellOpenMobileOverlay =
     "max-lg:border max-lg:border-black/[0.12] max-lg:bg-[var(--page-bg)] max-lg:shadow-[0_20px_50px_rgba(0,0,0,0.14)] max-lg:backdrop-blur-none max-lg:backdrop-saturate-100";
@@ -62,22 +124,30 @@ const EditorialNav = () => {
       className="pointer-events-none fixed left-0 right-0 top-0 z-[100] flex justify-center px-3 sm:px-4"
       style={{ paddingTop: "max(0.5rem, env(safe-area-inset-top))" }}
     >
+      {isOpen ? (
+        <button
+          type="button"
+          aria-label="Close menu"
+          className="pointer-events-auto fixed inset-0 z-0 bg-black/30 backdrop-blur-[2px] transition-opacity duration-300 ease-out supports-[backdrop-filter]:bg-black/22 lg:hidden motion-reduce:backdrop-blur-none"
+          onClick={closeMenu}
+        />
+      ) : null}
       <nav
-        className="pointer-events-auto w-full max-w-[1200px] font-jost"
+        className="pointer-events-auto relative z-10 w-full max-w-[1240px] font-jost"
         aria-label="Main navigation"
       >
         <div
-          className={`overflow-hidden transition-[margin-top,border-radius] duration-300 ease-out motion-reduce:transition-none ${shell} ${isOpen ? shellOpenMobileOverlay : ""}`}
+          className={`overflow-hidden transition-[margin-top,border-radius,background-color,box-shadow,border-color] duration-300 ease-out motion-reduce:transition-none ${shell} ${isOpen ? shellOpenMobileOverlay : ""}`}
           style={{
-            marginTop: scrolled ? 10 : 0,
-            borderRadius: scrolled ? 18 : 0,
+            marginTop: barFloated ? 10 : 0,
+            borderRadius: barFloated ? 18 : 0,
           }}
         >
-          <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5">
+          <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5 ">
             <a
               href="#home"
               className="inline-flex shrink-0 items-center gap-2 text-lg font-bold tracking-tight text-gray-950 sm:text-xl"
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
             >
               <span
                 className="h-2 w-2 shrink-0 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.35)] max-lg:shadow-[0_0_4px_rgba(16,185,129,0.25)]"
@@ -110,7 +180,7 @@ const EditorialNav = () => {
             <button
               type="button"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/15 bg-white text-gray-950 shadow-sm lg:hidden"
-              onClick={() => setIsOpen((o) => !o)}
+              onClick={toggleMobileMenu}
               aria-expanded={isOpen}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
@@ -125,37 +195,36 @@ const EditorialNav = () => {
             </button>
           </div>
 
+          {/* grid 0fr→1fr: smooth height without max-height jank (vh jumps on mobile also avoided via dvh cap) */}
           <div
-            className={`border-t border-black/[0.1] transition-[max-height] duration-300 ease-out lg:hidden ${
-              isOpen
-                ? "max-h-[min(75vh,460px)] overflow-y-auto scrollBar"
-                : "max-h-0 overflow-hidden"
+            className={`grid w-full bg-[#eae8e4] lg:hidden transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
+              isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
             }`}
           >
-            <div
-              className={`flex flex-col gap-0.5 px-3 py-3 sm:px-4 ${
-                isOpen ? "bg-[var(--page-bg)]" : ""
-              }`}
-            >
-              {links.map(({ label, href }) => (
-                <a
-                  key={href + label}
-                  href={href}
-                  className={mobileMenuLinkClass}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {label}
-                </a>
-              ))}
-              <a
-                href={PDF}
-                download="Fardus_Hassan_Resume"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1a1a] py-2.5 text-sm font-semibold text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                <MdFileDownload />
-                Download CV
-              </a>
+            <div className="min-h-0 overflow-hidden">
+              <div className="max-h-[min(70dvh,28rem)] overflow-y-auto overflow-x-hidden overscroll-y-contain scrollBar border-t border-black/[0.1] [contain:content]">
+                <div className="flex flex-col gap-0.5 px-3 py-3 sm:px-4">
+                  {links.map(({ label, href }) => (
+                    <a
+                      key={href + label}
+                      href={href}
+                      className={mobileMenuLinkClass}
+                      onClick={closeMenu}
+                    >
+                      {label}
+                    </a>
+                  ))}
+                  <a
+                    href={PDF}
+                    download="Fardus_Hassan_Resume"
+                    className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1a1a] py-2.5 text-sm font-semibold text-white"
+                    onClick={closeMenu}
+                  >
+                    <MdFileDownload />
+                    Download CV
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
