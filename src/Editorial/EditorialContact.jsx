@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   HiOutlineMail,
   HiOutlinePhone,
@@ -79,14 +79,14 @@ const EditorialContact = () => {
     >
       <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
         {/* Left: narrative + contact cards */}
-        <motion.div
+        <m.div
           className="mx-auto w-full max-w-lg space-y-8 lg:col-span-5 lg:mx-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={contactStagger}
         >
-          <motion.div variants={fadeUp} className="relative">
+          <m.div variants={fadeUp} className="relative">
             <div
               className="pointer-events-none absolute -bottom-3 -right-3 left-6 top-6 rounded-2xl border border-black/[0.07] bg-white/20"
               aria-hidden
@@ -105,9 +105,9 @@ const EditorialContact = () => {
                 Open inbox
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.p
+          <m.p
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -116,10 +116,10 @@ const EditorialContact = () => {
           >
             Prefer another channel? Use the links below — same person, faster
             threads on WhatsApp for quick questions.
-          </motion.p>
+          </m.p>
 
           <div className="grid gap-4 sm:grid-cols-1">
-            <motion.a
+            <m.a
               href="tel:+8801722092675"
               variants={fadeUp}
               initial="hidden"
@@ -140,9 +140,9 @@ const EditorialContact = () => {
                 <p className="font-semibold text-gray-950">+880 1722092675</p>
                 <p className="mt-1 text-xs text-[var(--ed-muted)]">Tap to call</p>
               </div>
-            </motion.a>
+            </m.a>
 
-            <motion.a
+            <m.a
               href="mailto:fardus.dev@gmail.com"
               variants={fadeUp}
               initial="hidden"
@@ -165,9 +165,9 @@ const EditorialContact = () => {
                 </p>
                 <p className="mt-1 text-xs text-[var(--ed-muted)]">Opens your mail app</p>
               </div>
-            </motion.a>
+            </m.a>
 
-            <motion.div
+            <m.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -191,10 +191,10 @@ const EditorialContact = () => {
                   Remote-friendly · Joydebpur, Gazipur
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -212,11 +212,11 @@ const EditorialContact = () => {
                 {label}
               </a>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Right: form — sticky on large screens while left column scrolls */}
-        <motion.div
+        <m.div
           className="lg:col-span-7 lg:sticky lg:top-28 lg:z-10 lg:self-start"
           initial="hidden"
           whileInView="visible"
@@ -306,6 +306,7 @@ const EditorialContact = () => {
                 <textarea
                   id="ed-message"
                   rows={5}
+                  data-lenis-prevent
                   {...register("message", { required: "Required" })}
                   className="editorial-input resize-none"
                 />
@@ -323,7 +324,7 @@ const EditorialContact = () => {
               </button>
             </div>
           </form>
-        </motion.div>
+        </m.div>
       </div>
     </EditorialSection>
   );

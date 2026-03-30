@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types -- internal resume card helpers */
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdFileDownload } from "react-icons/md";
@@ -47,7 +47,7 @@ function ExperienceCard({ job, index }) {
     accent === "emerald" ? "text-emerald-800" : "text-violet-800";
 
   return (
-    <motion.article
+    <m.article
       variants={fadeUp}
       className="editorial-card relative overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-8"
     >
@@ -123,13 +123,13 @@ function ExperienceCard({ job, index }) {
           </div>
         </div>
       </div>
-    </motion.article>
+    </m.article>
   );
 }
 
 function CourseCard({ course, index }) {
   return (
-    <motion.article
+    <m.article
       variants={fadeUp}
       className="editorial-card relative h-full overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8"
     >
@@ -167,7 +167,7 @@ function CourseCard({ course, index }) {
       <p className="relative leading-relaxed text-[var(--ed-muted)]">
         {course.summary}
       </p>
-    </motion.article>
+    </m.article>
   );
 }
 
@@ -182,14 +182,14 @@ const EditorialResume = () => {
         className="!max-w-[1240px]"
       >
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
-          <motion.div
+          <m.div
             className="mx-auto w-full max-w-lg space-y-6 lg:sticky lg:top-28 lg:z-10 lg:col-span-5 lg:mx-0 lg:self-start"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={resumeStagger}
           >
-            <motion.div variants={fadeUp} className="relative">
+            <m.div variants={fadeUp} className="relative">
               <div
                 className="pointer-events-none absolute -bottom-3 -right-3 left-6 top-6 rounded-2xl border border-black/[0.07] bg-white/20"
                 aria-hidden
@@ -217,9 +217,9 @@ const EditorialResume = () => {
                   Download resume
                 </a>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeUp}
               className="editorial-card flex items-start gap-4 p-5 sm:p-6"
             >
@@ -242,10 +242,10 @@ const EditorialResume = () => {
                   and ATS-friendly formatting.
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="space-y-6 lg:col-span-7"
             initial="hidden"
             whileInView="visible"
@@ -255,7 +255,7 @@ const EditorialResume = () => {
             {editorialExperiences.map((job, i) => (
               <ExperienceCard key={job.company} job={job} index={i} />
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </EditorialSection>
 
@@ -267,7 +267,7 @@ const EditorialResume = () => {
         className="!max-w-[1240px] !pt-12 lg:!pt-16"
         delay={0.04}
       >
-        <motion.div
+        <m.div
           className="grid gap-6 md:grid-cols-2 lg:gap-8"
           initial="hidden"
           whileInView="visible"
@@ -277,7 +277,7 @@ const EditorialResume = () => {
           {editorialCourses.map((course, i) => (
             <CourseCard key={course.title} course={course} index={i} />
           ))}
-        </motion.div>
+        </m.div>
       </EditorialSection>
 
       <EditorialSection
@@ -288,7 +288,7 @@ const EditorialResume = () => {
         className="!max-w-[1240px] !pt-12 lg:!pt-16"
         delay={0.06}
       >
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
@@ -321,7 +321,7 @@ const EditorialResume = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </EditorialSection>
     </div>
   );

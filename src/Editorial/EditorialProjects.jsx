@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { EASE_SECTION } from "../Components/SectionReveal";
@@ -17,19 +17,30 @@ const fadeUp = {
 
 const EditorialProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [reloadKey, setReloadKey] = useState(0);
+  const [reloadKeys, setReloadKeys] = useState(() =>
+    editorialProjects.map(() => 0)
+  );
+
   const active = editorialProjects[activeIndex];
   const displayHost = active.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+  const reloadActivePreview = () => {
+    setReloadKeys((prev) => {
+      const next = [...prev];
+      next[activeIndex] += 1;
+      return next;
+    });
+  };
 
   return (
     <EditorialSection
       id="projects"
       kicker="Projects"
       title="Live work — browse in place"
-      subtitle="Each preview loads the real deployment in a frame so you can click around like a normal tab. If a host blocks embedding, use Open."
+      subtitle="All previews load in the background so switching projects is instant. Each frame is the real deployment — if a host blocks embedding, use Open."
       className="!max-w-[1240px] px-1 xs:px-0"
     >
-      <motion.div
+      <m.div
         className="relative mb-6 sm:mb-10 lg:mb-12"
         initial="hidden"
         whileInView="visible"
@@ -66,7 +77,7 @@ const EditorialProjects = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Mobile: preview first (order-1); desktop: grid with aside left */}
       <div className="grid min-w-0 grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10">
@@ -81,6 +92,7 @@ const EditorialProjects = () => {
             Swipe sideways to see all — tap to load the live site above.
           </p>
           <div
+            data-lenis-prevent
             className="editorial-picker-scroll -mx-2 flex gap-2.5 overflow-x-auto overscroll-x-contain px-2 pb-2 pt-0.5 scroll-smooth snap-x snap-mandatory sm:-mx-1 sm:gap-2 sm:px-1 lg:mx-0 lg:max-h-[min(70dvh,calc(100dvh-12rem))] lg:flex-col lg:gap-2 lg:overflow-y-auto lg:overflow-x-visible lg:px-0 lg:pb-0 lg:pr-2 lg:snap-none"
             role="tablist"
             aria-label="Project previews"
@@ -142,13 +154,7 @@ const EditorialProjects = () => {
           <p className="mb-2 text-center text-xs font-semibold text-gray-800 lg:hidden">
             Live preview
           </p>
-          <motion.div
-            key={active.iframeSrc}
-            initial={{ opacity: 0.85, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: EASE_SECTION }}
-            className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
-          >
+          <div className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
             <div className="flex flex-col gap-3 border-b border-black/[0.08] bg-white/80 px-3 py-3 backdrop-blur-md sm:gap-2 sm:px-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex min-w-0 flex-1 items-start gap-2">
@@ -169,7 +175,7 @@ const EditorialProjects = () => {
                 <div className="flex shrink-0 items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => setReloadKey((k) => k + 1)}
+                    onClick={reloadActivePreview}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.1] bg-white text-gray-800 transition-colors hover:bg-white active:bg-gray-50 sm:h-9 sm:w-9"
                     title="Reload preview"
                     aria-label="Reload preview"
@@ -205,23 +211,36 @@ const EditorialProjects = () => {
               </div>
             ) : null}
 
-            <div className="relative bg-[#e8e6e2]">
-              <iframe
-                key={`${active.iframeSrc}-${reloadKey}`}
-                title={`${active.name} — live site`}
-                src={active.iframeSrc}
-                className="aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full border-0 xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            {/* One iframe per project, all mounted + eager — only the active layer is visible & interactive */}
+            <div
+              className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
+            >
+              {editorialProjects.map((p, i) => {
+                const isActive = i === activeIndex;
+                return (
+                  <iframe
+                    key={`${p.iframeSrc}-${reloadKeys[i]}`}
+                    title={`${p.name} — live site`}
+                    src={p.iframeSrc}
+                    loading="eager"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    tabIndex={isActive ? 0 : -1}
+                    aria-hidden={!isActive}
+                    className={`absolute inset-0 h-full w-full border-0 ${
+                      isActive
+                        ? "z-[1] opacity-100"
+                        : "z-0 opacity-0 pointer-events-none"
+                    }`}
+                  />
+                );
+              })}
             </div>
-          </motion.div>
+          </div>
 
           <p className="mt-3 px-1 text-center text-[11px] leading-relaxed text-[var(--ed-muted)] sm:mt-4 sm:text-xs lg:px-0 lg:text-left">
-            This is the deployed site inside a frame. Some hosts block previews
-            for security — if the area stays empty, use{" "}
-            <strong className="font-semibold text-gray-800">Open</strong> for the
-            full tab experience.
+            Every project loads in its own frame in the background (heavier on
+            first visit). If a preview stays blank, the host may block iframes —
+            use <strong className="font-semibold text-gray-800">Open</strong>.
           </p>
         </div>
       </div>

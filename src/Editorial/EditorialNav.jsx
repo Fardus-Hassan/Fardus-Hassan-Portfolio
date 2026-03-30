@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
 import { MdFileDownload } from "react-icons/md";
 
@@ -72,7 +72,7 @@ const EditorialNav = () => {
         className="pointer-events-auto w-full max-w-[1200px] font-jost"
         aria-label="Main navigation"
       >
-        <motion.div
+        <m.div
           className={`overflow-hidden ${shell} ${isOpen ? shellOpenMobileOverlay : ""}`}
           initial={false}
           animate={{
@@ -134,6 +134,7 @@ const EditorialNav = () => {
           </div>
 
           <div
+            data-lenis-prevent
             className={`border-t border-black/[0.1] transition-[max-height] duration-300 ease-out lg:hidden ${
               isOpen
                 ? "max-h-[min(75vh,460px)] overflow-y-auto scrollBar"
@@ -166,7 +167,7 @@ const EditorialNav = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </nav>
     </div>
   );

@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types -- motion wrappers; children/className/as are conventional */
 /* eslint-disable react-refresh/only-export-components -- EASE_SECTION & stagger helpers used by sections */
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 export const EASE_SECTION = [0.22, 1, 0.36, 1];
 
 const motionTags = {
-  div: motion.div,
-  section: motion.section,
-  footer: motion.footer,
-  header: motion.header,
-  article: motion.article,
+  div: m.div,
+  section: m.section,
+  footer: m.footer,
+  header: m.header,
+  article: m.article,
 };
 
 /** Scroll-in (or mount) fade + slide — respects prefers-reduced-motion */
@@ -20,17 +20,17 @@ export function SectionReveal({
   className,
   children,
   id,
-  viewportAmount = 0.14,
+  viewportAmount = 0.12,
   y = 32,
   ...rest
 }) {
   const reduce = useReducedMotion();
-  const Motion = motionTags[as] ?? motion.div;
+  const Motion = motionTags[as] ?? m.div;
   const done = { opacity: 1, y: 0 };
   const from = reduce ? done : { opacity: 0, y };
 
   const transition = {
-    duration: reduce ? 0 : 0.58,
+    duration: reduce ? 0 : 0.5,
     delay: reduce ? 0 : delay,
     ease: EASE_SECTION,
   };
@@ -56,7 +56,12 @@ export function SectionReveal({
       className={className}
       initial={from}
       whileInView={done}
-      viewport={{ once: true, amount: viewportAmount, margin: "0px 0px -12% 0px" }}
+      viewport={{
+        once: true,
+        amount: viewportAmount,
+        // Trigger a bit earlier, less “edge” thrash while Lenis is still moving scroll.
+        margin: "0px 0px -22% 0px",
+      }}
       transition={transition}
       {...rest}
     >
@@ -114,7 +119,7 @@ export function RevealBlock({
   ...rest
 }) {
   const reduce = useReducedMotion();
-  const Motion = motionTags[as] ?? motion.section;
+  const Motion = motionTags[as] ?? m.section;
   const done = { opacity: 1, y: 0 };
   const from = reduce ? done : { opacity: 0, y };
 
@@ -123,8 +128,8 @@ export function RevealBlock({
       className={className}
       initial={from}
       whileInView={done}
-      viewport={{ once: true, amount }}
-      transition={{ duration: reduce ? 0 : 0.52, ease: EASE_SECTION }}
+      viewport={{ once: true, amount, margin: "0px 0px -18% 0px" }}
+      transition={{ duration: reduce ? 0 : 0.48, ease: EASE_SECTION }}
       {...rest}
     >
       {children}

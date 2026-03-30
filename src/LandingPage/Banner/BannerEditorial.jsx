@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { LuGithub } from "react-icons/lu";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -72,14 +72,14 @@ const BannerEditorial = () => {
       </svg>
 
       <div className="relative z-[3] mx-auto w-[92%] max-w-[1240px] sm:w-[90%]">
-        <motion.div
+        <m.div
           className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-14"
           variants={stagger}
           initial="hidden"
           animate="visible"
         >
           {/* Copy — first on mobile for immediate hook */}
-          <motion.div
+          <m.div
             variants={item}
             className="order-1 space-y-5 text-center sm:space-y-6 lg:order-none lg:col-span-6 lg:space-y-6 lg:text-left"
           >
@@ -145,10 +145,10 @@ const BannerEditorial = () => {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Portrait */}
-          <motion.div
+          <m.div
             variants={item}
             className="group relative order-2 mx-auto w-full max-w-[420px] lg:order-none lg:col-span-5 lg:mx-0 lg:max-w-none"
           >
@@ -182,7 +182,7 @@ const BannerEditorial = () => {
               </div>
             </div>
 
-            <motion.a
+            <m.a
               href="#contact"
               className="editorial-glass absolute -right-1 top-[8%] z-[4] flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-full shadow-lg transition-shadow duration-300 hover:shadow-xl sm:h-24 sm:w-24 lg:right-0 lg:top-[14%] lg:h-28 lg:w-28"
               whileHover={{ scale: 1.05 }}
@@ -210,11 +210,11 @@ const BannerEditorial = () => {
                   </text>
                 </svg>
               </div>
-            </motion.a>
-          </motion.div>
+            </m.a>
+          </m.div>
 
           {/* Desktop social rail */}
-          <motion.div
+          <m.div
             variants={item}
             className="order-3 hidden flex-col items-center justify-center gap-6 lg:order-none lg:col-span-1 lg:flex"
           >
@@ -230,11 +230,11 @@ const BannerEditorial = () => {
                 <Icon className="text-xl" />
               </a>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Mobile / tablet socials */}
-        <motion.div
+        <m.div
           className="mt-10 border-t border-black/[0.08] pt-8 lg:hidden"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -257,7 +257,7 @@ const BannerEditorial = () => {
               </a>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

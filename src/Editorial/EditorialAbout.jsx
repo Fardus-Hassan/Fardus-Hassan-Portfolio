@@ -1,5 +1,5 @@
 import CountUp from "react-countup";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import aboutme from "../assets/about-me.jpeg";
 import useGithubLifetimeCommits from "../hooks/useGithubLifetimeCommits";
 import { useOnScreen } from "./lib/useOnScreen";
@@ -55,14 +55,14 @@ const EditorialAbout = () => {
     >
       <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
         {/* Photo column */}
-        <motion.div
+        <m.div
           className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
           variants={aboutStagger}
         >
-          <motion.div variants={fadeUp} className="relative">
+          <m.div variants={fadeUp} className="relative">
             <div
               className="pointer-events-none absolute -bottom-4 -right-4 left-8 top-8 rounded-2xl border border-black/[0.07] bg-white/20"
               aria-hidden
@@ -87,12 +87,12 @@ const EditorialAbout = () => {
                 Gazipur, Bangladesh
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Copy + cards + stats */}
         <div className="space-y-8 lg:col-span-7">
-          <motion.p
+          <m.p
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -102,10 +102,10 @@ const EditorialAbout = () => {
             I turn complex requirements into{" "}
             <span className="text-emerald-800">fast, accessible interfaces</span>{" "}
             — and reliable backends to power them.
-          </motion.p>
+          </m.p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
@@ -123,8 +123,8 @@ const EditorialAbout = () => {
                 Next.js, Redux, REST APIs, Firebase Auth — and React Native in
                 progress for mobile.
               </p>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
@@ -141,10 +141,10 @@ const EditorialAbout = () => {
                 Node.js, Express, MongoDB. Daily tools: VS Code, Cursor, Git,
                 GitHub, Vercel, Figma, Netlify — from prototype to production.
               </p>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -159,9 +159,9 @@ const EditorialAbout = () => {
                 {t}
               </span>
             ))}
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -224,7 +224,7 @@ const EditorialAbout = () => {
                 Roles shipped
               </p>
             </div>
-          </motion.div>
+          </m.div>
 
           <p className="text-center text-xs text-[var(--ed-muted)] lg:text-left">
             Joydebpur, Gazipur · Open to remote-friendly collaborations

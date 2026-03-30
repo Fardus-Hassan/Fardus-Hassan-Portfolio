@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types -- SkillTile receives stable skill objects */
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -111,7 +111,7 @@ const panelVariants = {
 
 function SkillTile({ skill }) {
   return (
-    <motion.div
+    <m.div
       layout
       className="editorial-card group relative flex flex-col items-center overflow-hidden p-5 shadow-[0_12px_36px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] sm:p-6"
     >
@@ -121,7 +121,7 @@ function SkillTile({ skill }) {
       <p className="text-center text-xs font-semibold text-gray-900 sm:text-sm">
         {skill.name}
       </p>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -138,7 +138,7 @@ const EditorialSkills = () => {
       subtitle="From interface polish to APIs and deployment — the tools behind real products in production, not demo tutorials."
       className="!max-w-[1240px]"
     >
-      <motion.div
+      <m.div
         className="relative mb-12 lg:mb-14"
         initial="hidden"
         whileInView="visible"
@@ -192,9 +192,9 @@ const EditorialSkills = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         className="relative mb-12 lg:mb-14"
         initial="hidden"
         whileInView="visible"
@@ -230,7 +230,7 @@ const EditorialSkills = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4 lg:sticky lg:top-28 lg:z-10 lg:self-start">
@@ -284,7 +284,7 @@ const EditorialSkills = () => {
 
         <div className="min-w-0 lg:col-span-8">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeTab}
               role="tabpanel"
               variants={panelVariants}
@@ -303,7 +303,7 @@ const EditorialSkills = () => {
                   {skillCategories[activeTab].blurb}
                 </p>
               </div>
-              <motion.div
+              <m.div
                 layout
                 className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:gap-5"
               >
@@ -313,8 +313,8 @@ const EditorialSkills = () => {
                     skill={skill}
                   />
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </div>

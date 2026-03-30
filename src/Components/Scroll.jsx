@@ -11,9 +11,18 @@ function Scroll() {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
+    const onScrollRaf = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        onScroll();
+      });
+    };
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScrollRaf, { passive: true });
+    return () => window.removeEventListener("scroll", onScrollRaf);
   }, [onScroll]);
 
   const scrollTop = () => {

@@ -1,17 +1,17 @@
 export const editorialProjects = [
   {
-    name: "Qawmi Talim",
-    title: "ERP-based Madrasha Management Software",
-    lines: ["User Name: admin_demo", "Password: admin123"],
-    liveUrl: "https://demo.qawmitalim.online",
-    iframeSrc: "https://demo.qawmitalim.online/",
-  },
-  {
     name: "Cian Collective",
     title: "Faith-based spiritual music collective website",
     lines: [],
     liveUrl: "https://www.ciancollective.org",
     iframeSrc: "https://www.ciancollective.org/",
+  },
+  {
+    name: "Qawmi Talim",
+    title: "ERP-based Madrasha Management Software",
+    lines: ["User Name: admin_demo", "Password: admin123"],
+    liveUrl: "https://demo.qawmitalim.online",
+    iframeSrc: "https://demo.qawmitalim.online/",
   },
   {
     name: "DevDive",
