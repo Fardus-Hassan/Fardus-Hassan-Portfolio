@@ -29,7 +29,11 @@ const EditorialProjects = () => {
       subtitle="All previews load in the background so switching projects is instant. Each frame is the real deployment — if a host blocks embedding, use Open."
       className="!max-w-[1240px] px-1 xs:px-0"
     >
-      <div className="relative mb-6 sm:mb-10 lg:mb-12">
+      <div
+        className="relative mb-6 sm:mb-10 lg:mb-12"
+        data-aos="fade-up"
+        data-aos-delay="80"
+      >
         <div
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 hidden rounded-2xl border border-black/[0.07] bg-white/20 sm:block"
           aria-hidden
@@ -63,15 +67,30 @@ const EditorialProjects = () => {
       </div>
 
       {/* Mobile: preview first (order-1); desktop: grid with aside left */}
-      <div className="grid min-w-0 grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10">
-        <aside className="order-2 min-w-0 lg:order-none lg:col-span-4 lg:sticky lg:top-28 lg:z-10 lg:self-start">
-          <div className="mb-2 flex items-center gap-2 sm:mb-3 lg:justify-start">
+      <div
+        className="grid min-w-0 grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10"
+        data-aos="fade-up"
+        data-aos-delay="120"
+      >
+        <aside
+          className="order-2 min-w-0 lg:order-none lg:col-span-4 lg:sticky lg:top-28 lg:z-10 lg:self-start"
+          data-aos="fade-in"
+          data-aos-delay="150"
+        >
+          <div
+            className="mb-2 flex items-center gap-2 sm:mb-3 lg:justify-start"
+            data-aos="fade-in"
+          >
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
             <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
               Pick a project
             </span>
           </div>
-          <p className="mb-3 text-center text-xs leading-relaxed text-[var(--ed-muted)] lg:hidden">
+          <p
+            className="mb-3 text-center text-xs leading-relaxed text-[var(--ed-muted)] lg:hidden"
+            data-aos="fade-in"
+            data-aos-delay="110"
+          >
             Swipe sideways to see all — tap to load the live site above.
           </p>
           <div
@@ -132,13 +151,33 @@ const EditorialProjects = () => {
           </div>
         </aside>
 
-        <div className="order-1 min-w-0 lg:order-none lg:col-span-8">
-          <p className="mb-2 text-center text-xs font-semibold text-gray-800 lg:hidden">
+        <div
+          className="order-1 min-w-0 lg:order-none lg:col-span-8"
+          data-aos="fade-in"
+          data-aos-delay="190"
+        >
+          <p
+            className="mb-2 text-center text-xs font-semibold text-gray-800 lg:hidden"
+            data-aos="fade-in"
+            data-aos-delay="210"
+          >
             Live preview
           </p>
-          <div className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
-            <div className="flex flex-col gap-3 border-b border-black/[0.08] bg-white/80 px-3 py-3 backdrop-blur-md sm:gap-2 sm:px-4">
-              <div className="flex items-start justify-between gap-3">
+          <div
+            className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
+            data-aos="fade-in"
+            data-aos-delay="240"
+          >
+            <div
+              className="flex flex-col gap-3 border-b border-black/[0.08] bg-white/80 px-3 py-3 backdrop-blur-md sm:gap-2 sm:px-4"
+              data-aos="fade-in"
+              data-aos-delay="250"
+            >
+              <div
+                className="flex items-start justify-between gap-3"
+                data-aos="fade-in"
+                data-aos-delay="260"
+              >
                 <div className="flex min-w-0 flex-1 items-start gap-2">
                   <div className="mt-1.5 hidden shrink-0 items-center gap-1.5 sm:flex" aria-hidden>
                     <span className="h-2 w-2 rounded-full bg-[#ff5f57] sm:h-2.5 sm:w-2.5" />
@@ -181,7 +220,11 @@ const EditorialProjects = () => {
             </div>
 
             {active.lines?.length ? (
-              <div className="border-b border-amber-200/70 bg-amber-50/95 px-3 py-2.5 text-xs text-amber-950 sm:px-4">
+              <div
+                className="border-b border-amber-200/70 bg-amber-50/95 px-3 py-2.5 text-xs text-amber-950 sm:px-4"
+                data-aos="fade-in"
+                data-aos-delay="310"
+              >
                 <p className="font-bold uppercase tracking-[0.12em] text-amber-900/90">
                   Demo access
                 </p>
@@ -196,6 +239,8 @@ const EditorialProjects = () => {
             {/* One iframe per project, all mounted + eager — only the active layer is visible & interactive */}
             <div
               className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
+              data-aos="fade-in"
+              data-aos-delay="340"
             >
               {editorialProjects.map((p, i) => {
                 const isActive = i === activeIndex;
@@ -219,7 +264,11 @@ const EditorialProjects = () => {
             </div>
           </div>
 
-          <p className="mt-3 px-1 text-center text-[11px] leading-relaxed text-[var(--ed-muted)] sm:mt-4 sm:text-xs lg:px-0 lg:text-left">
+          <p
+            className="mt-3 px-1 text-center text-[11px] leading-relaxed text-[var(--ed-muted)] sm:mt-4 sm:text-xs lg:px-0 lg:text-left"
+            data-aos="fade-in"
+            data-aos-delay="420"
+          >
             Every project loads in its own frame in the background (heavier on
             first visit). If a preview stays blank, the host may block iframes —
             use <strong className="font-semibold text-gray-800">Open</strong>.

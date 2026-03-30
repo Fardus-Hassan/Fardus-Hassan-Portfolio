@@ -51,11 +51,17 @@ const EditorialFooter = () => {
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 hidden rounded-2xl border border-black/[0.07] bg-white/20 lg:block"
           aria-hidden
         />
-        <div className="editorial-card relative grid gap-10 overflow-hidden p-8 shadow-[0_24px_60px_rgba(0,0,0,0.07)] lg:grid-cols-12 lg:gap-12 lg:p-10">
+        <div
+          className="editorial-card relative grid gap-10 overflow-hidden p-8 shadow-[0_24px_60px_rgba(0,0,0,0.07)] lg:grid-cols-12 lg:gap-12 lg:p-10"
+          data-aos="fade"
+        >
           <div className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-emerald-400/12 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-12 -right-10 h-44 w-44 rounded-full bg-violet-400/12 blur-3xl" />
 
-          <div className="relative text-center lg:col-span-5 lg:text-left">
+          <div
+            className="relative text-center lg:col-span-5 lg:text-left"
+            data-aos="fade"
+          >
             {/* <div className="mb-3 flex items-center justify-center gap-2 lg:justify-start">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-800">
@@ -76,7 +82,10 @@ const EditorialFooter = () => {
             <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
               Social
             </p>
-            <div className="mt-3 flex flex-wrap justify-center gap-2 lg:justify-start">
+            <div
+              className="mt-3 flex flex-wrap justify-center gap-2 lg:justify-start"
+              data-aos="fade"
+            >
               {socials.map(({ href, label, icon: Icon, iconClass }) => (
                 <a
                   key={label}
@@ -85,6 +94,7 @@ const EditorialFooter = () => {
                   rel="noopener noreferrer"
                   aria-label={label}
                   className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-white/50 text-gray-800 backdrop-blur-sm transition-colors hover:border-black/15 hover:bg-white/80"
+                  data-aos="fade"
                 >
                   <Icon className={`text-lg ${iconClass ?? ""}`} />
                 </a>
@@ -92,7 +102,10 @@ const EditorialFooter = () => {
             </div>
           </div>
 
-          <div className="relative text-center lg:col-span-4 lg:text-left">
+          <div
+            className="relative text-center lg:col-span-4 lg:text-left"
+            data-aos="fade"
+          >
             <div className="mb-1 flex items-center justify-center gap-2 lg:justify-start">
               <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -105,6 +118,7 @@ const EditorialFooter = () => {
                   <a
                     href={href}
                     className="text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950"
+                    data-aos="fade"
                   >
                     {label}
                   </a>
@@ -113,20 +127,30 @@ const EditorialFooter = () => {
             </ul>
           </div>
 
-          <div className="relative text-center lg:col-span-3 lg:text-left">
+          <div
+            className="relative text-center lg:col-span-3 lg:text-left"
+            data-aos="fade"
+          >
             <div className="mb-1 flex items-center justify-center gap-2 lg:justify-start">
               <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
                 Let&apos;s talk
               </p>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-[var(--ed-muted)]">
+            <p
+              className="mt-4 text-sm leading-relaxed text-[var(--ed-muted)]"
+              data-aos="fade"
+            >
               Open to freelance, collaborations, and full-time roles.
             </p>
-            <div className="flex flex-wrap sm:justify-start justify-center items-center gap-2">
+            <div
+              className="flex flex-wrap sm:justify-start justify-center items-center gap-2"
+              data-aos="fade"
+            >
             <a
               href="mailto:fardus.dev@gmail.com"
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-950 py-3 text-xs font-semibold text-white shadow-lg shadow-black/10 transition-all hover:bg-gray-900 sm:w-auto sm:px-5"
+              data-aos="fade"
             >
               <HiOutlineMail className="text-base" aria-hidden />
               Email me
@@ -134,6 +158,7 @@ const EditorialFooter = () => {
             <a
               href="#contact"
               className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950 lg:justify-start"
+              data-aos="fade"
             >
               Contact form
               <FaArrowUpRightFromSquare className="text-xs opacity-70" aria-hidden />
@@ -143,11 +168,17 @@ const EditorialFooter = () => {
         </div>
       </div>
 
-      <div className="mt-10 flex flex-col-reverse items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+      <div
+        className="mt-10 flex flex-col-reverse items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
+        data-aos="fade"
+      >
         <p className="text-xs text-[var(--ed-muted)]">
           © {new Date().getFullYear()} Fardus Hassan. All rights reserved.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">
+        <div
+          className="flex flex-wrap items-center justify-center gap-2 sm:justify-end"
+          data-aos="fade"
+        >
           <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ed-muted)] sm:mr-1">
             Built with
           </span>
@@ -155,6 +186,7 @@ const EditorialFooter = () => {
             <span
               key={t}
               className="rounded-full border border-black/[0.08] bg-white/50 px-3 py-1 text-xs font-semibold text-gray-800 backdrop-blur-sm"
+              data-aos="fade"
             >
               {t}
             </span>

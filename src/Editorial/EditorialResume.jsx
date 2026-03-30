@@ -29,7 +29,11 @@ function ExperienceCard({ job, index }) {
     accent === "emerald" ? "text-emerald-800" : "text-violet-800";
 
   return (
-    <article className="editorial-card relative overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-8">
+    <article
+      className="editorial-card relative overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-8"
+      data-aos="fade-up"
+      data-aos-delay={120 + index * 70}
+    >
       <div
         className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl ${
           accent === "emerald" ? "bg-emerald-400/12" : "bg-violet-400/12"
@@ -108,7 +112,11 @@ function ExperienceCard({ job, index }) {
 
 function CourseCard({ course, index }) {
   return (
-    <article className="editorial-card relative h-full overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8">
+    <article
+      className="editorial-card relative h-full overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8"
+      data-aos="zoom-in-up"
+      data-aos-delay={120 + index * 80}
+    >
       <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-400/10 blur-2xl" />
       <div className="relative mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-700">

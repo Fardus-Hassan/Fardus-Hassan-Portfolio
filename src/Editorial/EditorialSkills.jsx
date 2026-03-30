@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types -- SkillTile receives stable skill objects */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AOS from "aos";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -84,9 +85,13 @@ const skillCategories = [
   },
 ];
 
-function SkillTile({ skill }) {
+function SkillTile({ skill, index }) {
   return (
-    <div className="editorial-card group relative flex flex-col items-center overflow-hidden p-5 shadow-[0_12px_36px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] sm:p-6">
+    <div
+      className="editorial-card group relative flex flex-col items-center overflow-hidden p-5 shadow-[0_12px_36px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] sm:p-6"
+      data-aos="zoom-in-up"
+      data-aos-delay={index != null ? 120 + index * 60 : 120}
+    >
       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-black/[0.06] bg-white/70 text-3xl text-gray-800 transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:text-[2rem]">
         {skill.icon}
       </div>
@@ -101,6 +106,17 @@ const EditorialSkills = () => {
   const [activeTab, setActiveTab] = useState(0);
   const allSkills = skillCategories.flatMap((c) => c.skills);
   const totalCount = allSkills.length;
+
+  // Tab content is conditionally shown; since AOS mutation observer is disabled,
+  // force a refresh when tab changes so new elements don't remain hidden.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const t = window.setTimeout(() => {
+      if (typeof AOS?.refreshHard === "function") AOS.refreshHard();
+      else AOS?.refresh?.();
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [activeTab]);
 
   return (
     <EditorialSection
@@ -256,10 +272,11 @@ const EditorialSkills = () => {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:gap-5">
-                {skillCategories[activeTab].skills.map((skill) => (
+                {skillCategories[activeTab].skills.map((skill, idx) => (
                   <SkillTile
                     key={`${activeTab}-${skill.name}`}
                     skill={skill}
+                    index={idx}
                   />
                 ))}
               </div>

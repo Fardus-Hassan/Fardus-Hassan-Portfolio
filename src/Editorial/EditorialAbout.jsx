@@ -35,9 +35,17 @@ const EditorialAbout = () => {
       subtitle="Mechanical engineering roots — now shipping full-stack web products with a focus on UX and maintainability."
       className="!max-w-[1240px]"
     >
-      <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
+      <div
+        className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14"
+        data-aos="fade-up"
+        data-aos-delay="80"
+      >
         {/* Photo column */}
-        <div className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0">
+        <div
+          className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0"
+          data-aos="zoom-in"
+          data-aos-delay="120"
+        >
           <div className="relative">
             <div
               className="pointer-events-none absolute -bottom-4 -right-4 left-8 top-8 rounded-2xl border border-black/[0.07] bg-white/20"
@@ -67,15 +75,15 @@ const EditorialAbout = () => {
         </div>
 
         {/* Copy + cards + stats */}
-        <div className="space-y-8 lg:col-span-7">
-          <p className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left">
+        <div className="space-y-8 lg:col-span-7" data-aos="fade-right" data-aos-delay="150">
+          <p className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left" data-aos="fade-up">
             I turn complex requirements into{" "}
             <span className="text-emerald-800">fast, accessible interfaces</span>{" "}
             — and reliable backends to power them.
           </p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="editorial-card p-6 text-left">
+          <div className="grid gap-4 sm:grid-cols-2" data-aos="fade-up" data-aos-delay="220">
+            <div className="editorial-card p-6 text-left" data-aos="fade-up" data-aos-delay="240">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -88,7 +96,7 @@ const EditorialAbout = () => {
                 progress for mobile.
               </p>
             </div>
-            <div className="editorial-card p-6 text-left">
+            <div className="editorial-card p-6 text-left" data-aos="fade-up" data-aos-delay="290">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -102,21 +110,25 @@ const EditorialAbout = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
-            {techChips.map((t) => (
+          <div className="flex flex-wrap justify-center gap-2 lg:justify-start" data-aos="zoom-in-up" data-aos-delay="320">
+            {techChips.map((t, idx) => (
               <span
                 key={t}
                 className="rounded-full border border-black/[0.08] bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-800 backdrop-blur-sm"
+                data-aos="zoom-in"
+                data-aos-delay={320 + idx * 40}
               >
                 {t}
               </span>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="380">
             <div
               ref={ref1}
               className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left"
+              data-aos="flip-up"
+              data-aos-delay="390"
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible1 ? (
@@ -147,6 +159,8 @@ const EditorialAbout = () => {
             <div
               ref={ref2}
               className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left"
+              data-aos="flip-up"
+              data-aos-delay="430"
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible2 ? (
@@ -162,6 +176,8 @@ const EditorialAbout = () => {
             <div
               ref={ref3}
               className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left"
+              data-aos="flip-up"
+              data-aos-delay="470"
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible3 ? <CountUp end={2} duration={3} suffix="+" /> : "2+"}
@@ -172,7 +188,7 @@ const EditorialAbout = () => {
             </div>
           </div>
 
-          <p className="text-center text-xs text-[var(--ed-muted)] lg:text-left">
+          <p className="text-center text-xs text-[var(--ed-muted)] lg:text-left" data-aos="fade-up" data-aos-delay="520">
             Joydebpur, Gazipur · Open to remote-friendly collaborations
           </p>
         </div>

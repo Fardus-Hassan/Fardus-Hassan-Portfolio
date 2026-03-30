@@ -12,7 +12,9 @@
   "dependencies": {
     "@apollo/client": "^3.10.8",
     "@emailjs/browser": "^4.4.1",
+    "aos": "^2.3.4",
     "axios": "^1.7.2",
+    "framer-motion": "^12.38.0",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.0",
     "localforage": "^1.10.0",
