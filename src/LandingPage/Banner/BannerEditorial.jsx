@@ -217,7 +217,7 @@ const BannerEditorial = () => {
           {/* Desktop social rail */}
           <div
             className="order-3 hidden flex-col items-center justify-center gap-6 lg:order-none lg:col-span-1 lg:flex"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="190"
           >
             {socials.map(({ href, label, Icon }) => (

@@ -14,12 +14,11 @@ const EditorialSection = ({
 }) => {
   const aosTypes = [
     "fade-up",
-    "fade-right",
-    "fade-left",
-    "fade-up-right",
+    "fade-down",
     "zoom-in-up",
     "flip-up",
     "zoom-in",
+    "fade",
   ];
 
   const headerDelay = 90 + delay * 100;

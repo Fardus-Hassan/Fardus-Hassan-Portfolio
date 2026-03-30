@@ -67,7 +67,7 @@ const EditorialContact = () => {
         {/* Left: narrative + contact cards */}
         <div
           className="mx-auto w-full max-w-lg space-y-8 lg:col-span-5 lg:mx-0"
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-delay="130"
         >
           <div className="relative" data-aos="fade-up" data-aos-delay="170">
@@ -192,7 +192,7 @@ const EditorialContact = () => {
         {/* Right: form — sticky on large screens while left column scrolls */}
         <div
           className="lg:col-span-7 lg:sticky lg:top-28 lg:z-10 lg:self-start"
-          data-aos="fade-left"
+          data-aos="zoom-in-up"
           data-aos-delay="210"
         >
           <form
@@ -227,7 +227,7 @@ const EditorialContact = () => {
                 data-aos="fade-up"
                 data-aos-delay="340"
               >
-                <div data-aos="fade-right" data-aos-delay="370">
+                <div data-aos="fade-up" data-aos-delay="370">
                   <label
                     className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ed-muted)]"
                     htmlFor="ed-name"
@@ -244,7 +244,7 @@ const EditorialContact = () => {
                     <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
                   )}
                 </div>
-                <div data-aos="fade-right" data-aos-delay="420">
+                <div data-aos="fade-up" data-aos-delay="420">
                   <label
                     className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ed-muted)]"
                     htmlFor="ed-email"

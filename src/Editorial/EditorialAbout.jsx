@@ -75,7 +75,7 @@ const EditorialAbout = () => {
         </div>
 
         {/* Copy + cards + stats */}
-        <div className="space-y-8 lg:col-span-7" data-aos="fade-right" data-aos-delay="150">
+        <div className="space-y-8 lg:col-span-7" data-aos="fade-up" data-aos-delay="150">
           <p className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left" data-aos="fade-up">
             I turn complex requirements into{" "}
             <span className="text-emerald-800">fast, accessible interfaces</span>{" "}
