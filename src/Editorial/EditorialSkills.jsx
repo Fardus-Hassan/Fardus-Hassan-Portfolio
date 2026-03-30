@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types -- SkillTile receives stable skill objects */
 import { useState } from "react";
-import { AnimatePresence, m } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -30,7 +29,6 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative, TbRobot } from "react-icons/tb";
 import { RiAiGenerate } from "react-icons/ri";
-import { EASE_SECTION } from "../Components/SectionReveal";
 import EditorialSection from "./EditorialSection";
 
 const skillCategories = [
@@ -86,42 +84,16 @@ const skillCategories = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASE_SECTION },
-  },
-};
-
-const panelVariants = {
-  initial: { opacity: 0, y: 14 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: EASE_SECTION },
-  },
-  exit: {
-    opacity: 0,
-    y: -10,
-    transition: { duration: 0.25, ease: EASE_SECTION },
-  },
-};
-
 function SkillTile({ skill }) {
   return (
-    <m.div
-      layout
-      className="editorial-card group relative flex flex-col items-center overflow-hidden p-5 shadow-[0_12px_36px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] sm:p-6"
-    >
+    <div className="editorial-card group relative flex flex-col items-center overflow-hidden p-5 shadow-[0_12px_36px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.08)] sm:p-6">
       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-black/[0.06] bg-white/70 text-3xl text-gray-800 transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:text-[2rem]">
         {skill.icon}
       </div>
       <p className="text-center text-xs font-semibold text-gray-900 sm:text-sm">
         {skill.name}
       </p>
-    </m.div>
+    </div>
   );
 }
 
@@ -138,13 +110,7 @@ const EditorialSkills = () => {
       subtitle="From interface polish to APIs and deployment — the tools behind real products in production, not demo tutorials."
       className="!max-w-[1240px]"
     >
-      <m.div
-        className="relative mb-12 lg:mb-14"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-      >
+      <div className="relative mb-12 lg:mb-14">
         <div
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 rounded-2xl border border-black/[0.07] bg-white/20"
           aria-hidden
@@ -192,15 +158,9 @@ const EditorialSkills = () => {
             </div>
           </div>
         </div>
-      </m.div>
+      </div>
 
-      <m.div
-        className="relative mb-12 lg:mb-14"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={fadeUp}
-      >
+      <div className="relative mb-12 lg:mb-14">
         <div className="mb-4 flex items-center justify-center gap-2 lg:justify-start">
           <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
           <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -230,7 +190,7 @@ const EditorialSkills = () => {
             </div>
           </div>
         </div>
-      </m.div>
+      </div>
 
       <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4 lg:sticky lg:top-28 lg:z-10 lg:self-start">
@@ -283,15 +243,7 @@ const EditorialSkills = () => {
         </div>
 
         <div className="min-w-0 lg:col-span-8">
-          <AnimatePresence mode="wait">
-            <m.div
-              key={activeTab}
-              role="tabpanel"
-              variants={panelVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
+          <div key={activeTab} role="tabpanel">
               <div className="mb-6 flex flex-col items-center gap-2 border-b border-black/[0.06] pb-6 sm:flex-row sm:justify-between sm:gap-4">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-gray-950" />
@@ -303,19 +255,15 @@ const EditorialSkills = () => {
                   {skillCategories[activeTab].blurb}
                 </p>
               </div>
-              <m.div
-                layout
-                className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:gap-5"
-              >
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:gap-5">
                 {skillCategories[activeTab].skills.map((skill) => (
                   <SkillTile
                     key={`${activeTab}-${skill.name}`}
                     skill={skill}
                   />
                 ))}
-              </m.div>
-            </m.div>
-          </AnimatePresence>
+              </div>
+          </div>
         </div>
       </div>
     </EditorialSection>

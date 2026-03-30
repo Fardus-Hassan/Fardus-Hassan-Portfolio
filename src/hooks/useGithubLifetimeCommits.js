@@ -25,7 +25,8 @@ const useGithubLifetimeCommits = (username, token) => {
         let page = 1;
 
 
-        while (true) {
+        // Paginate until a short page or empty response
+        for (;;) {
           const url = `https://api.github.com/user/repos?per_page=100&page=${page}`;
           const res = await fetch(url, {
             headers: { Authorization: `Bearer ${token}` },
@@ -92,6 +93,7 @@ const useGithubLifetimeCommits = (username, token) => {
         setTotalCommits(total);
       } catch (err) {
         if (err.name === "AbortError") {
+          /* cancelled — leave state as-is */
         } else {
           console.error("useGithubLifetimeCommits error:", err);
           setError(err.message || "Unknown error");

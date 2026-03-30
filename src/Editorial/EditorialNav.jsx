@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { m, useReducedMotion } from "framer-motion";
 import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
 import { MdFileDownload } from "react-icons/md";
 
@@ -18,7 +17,6 @@ const SCROLL_EXPAND_BEFORE = 10;
 const EditorialNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const reduceMotion = useReducedMotion();
 
   const onScroll = useCallback(() => {
     const y = window.scrollY;
@@ -59,10 +57,6 @@ const EditorialNav = () => {
   const mobileMenuLinkClass =
     "block rounded-xl px-3 py-3 text-center text-[15px] font-semibold text-gray-950 transition-colors hover:bg-black/[0.06] active:bg-black/[0.08]";
 
-  const ease = reduceMotion
-    ? { type: "tween", duration: 0.25 }
-    : { type: "spring", stiffness: 380, damping: 32 };
-
   return (
     <div
       className="pointer-events-none fixed left-0 right-0 top-0 z-[100] flex justify-center px-3 sm:px-4"
@@ -72,14 +66,12 @@ const EditorialNav = () => {
         className="pointer-events-auto w-full max-w-[1200px] font-jost"
         aria-label="Main navigation"
       >
-        <m.div
-          className={`overflow-hidden ${shell} ${isOpen ? shellOpenMobileOverlay : ""}`}
-          initial={false}
-          animate={{
+        <div
+          className={`overflow-hidden transition-[margin-top,border-radius] duration-300 ease-out motion-reduce:transition-none ${shell} ${isOpen ? shellOpenMobileOverlay : ""}`}
+          style={{
             marginTop: scrolled ? 10 : 0,
             borderRadius: scrolled ? 18 : 0,
           }}
-          transition={ease}
         >
           <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5">
             <a
@@ -134,7 +126,6 @@ const EditorialNav = () => {
           </div>
 
           <div
-            data-lenis-prevent
             className={`border-t border-black/[0.1] transition-[max-height] duration-300 ease-out lg:hidden ${
               isOpen
                 ? "max-h-[min(75vh,460px)] overflow-y-auto scrollBar"
@@ -167,7 +158,7 @@ const EditorialNav = () => {
               </a>
             </div>
           </div>
-        </m.div>
+        </div>
       </nav>
     </div>
   );

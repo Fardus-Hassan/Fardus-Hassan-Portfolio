@@ -2,30 +2,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import { m } from "framer-motion";
 import {
   HiOutlineMail,
   HiOutlinePhone,
   HiOutlineLocationMarker,
 } from "react-icons/hi";
 import EditorialSection from "./EditorialSection";
-import { EASE_SECTION } from "../Components/SectionReveal";
-
-const contactStagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.06 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE_SECTION },
-  },
-};
 
 const quickLinks = [
   { label: "Email", href: "mailto:fardus.dev@gmail.com" },
@@ -79,14 +61,8 @@ const EditorialContact = () => {
     >
       <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
         {/* Left: narrative + contact cards */}
-        <m.div
-          className="mx-auto w-full max-w-lg space-y-8 lg:col-span-5 lg:mx-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={contactStagger}
-        >
-          <m.div variants={fadeUp} className="relative">
+        <div className="mx-auto w-full max-w-lg space-y-8 lg:col-span-5 lg:mx-0">
+          <div className="relative">
             <div
               className="pointer-events-none absolute -bottom-3 -right-3 left-6 top-6 rounded-2xl border border-black/[0.07] bg-white/20"
               aria-hidden
@@ -105,26 +81,16 @@ const EditorialContact = () => {
                 Open inbox
               </div>
             </div>
-          </m.div>
+          </div>
 
-          <m.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="text-center text-sm leading-relaxed text-[var(--ed-muted)] lg:text-left"
-          >
+          <p className="text-center text-sm leading-relaxed text-[var(--ed-muted)] lg:text-left">
             Prefer another channel? Use the links below — same person, faster
             threads on WhatsApp for quick questions.
-          </m.p>
+          </p>
 
           <div className="grid gap-4 sm:grid-cols-1">
-            <m.a
+            <a
               href="tel:+8801722092675"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.12 }}
               className="editorial-card group flex gap-4 p-5 text-left transition-shadow hover:shadow-lg sm:p-6"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/[0.06] bg-white/60 text-gray-800 transition-colors group-hover:border-emerald-500/30 group-hover:text-emerald-800">
@@ -140,14 +106,10 @@ const EditorialContact = () => {
                 <p className="font-semibold text-gray-950">+880 1722092675</p>
                 <p className="mt-1 text-xs text-[var(--ed-muted)]">Tap to call</p>
               </div>
-            </m.a>
+            </a>
 
-            <m.a
+            <a
               href="mailto:fardus.dev@gmail.com"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.12 }}
               className="editorial-card group flex gap-4 p-5 text-left transition-shadow hover:shadow-lg sm:p-6"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/[0.06] bg-white/60 text-gray-800 transition-colors group-hover:border-violet-500/30 group-hover:text-violet-800">
@@ -165,15 +127,9 @@ const EditorialContact = () => {
                 </p>
                 <p className="mt-1 text-xs text-[var(--ed-muted)]">Opens your mail app</p>
               </div>
-            </m.a>
+            </a>
 
-            <m.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.12 }}
-              className="editorial-card flex gap-4 p-5 sm:p-6"
-            >
+            <div className="editorial-card flex gap-4 p-5 sm:p-6">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/[0.06] bg-white/60 text-gray-800">
                 <HiOutlineLocationMarker className="text-xl" aria-hidden />
               </span>
@@ -191,16 +147,10 @@ const EditorialContact = () => {
                   Remote-friendly · Joydebpur, Gazipur
                 </p>
               </div>
-            </m.div>
+            </div>
           </div>
 
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="flex flex-wrap justify-center gap-2 lg:justify-start"
-          >
+          <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
             {quickLinks.map(({ label, href }) => (
               <a
                 key={label}
@@ -212,17 +162,11 @@ const EditorialContact = () => {
                 {label}
               </a>
             ))}
-          </m.div>
-        </m.div>
+          </div>
+        </div>
 
         {/* Right: form — sticky on large screens while left column scrolls */}
-        <m.div
-          className="lg:col-span-7 lg:sticky lg:top-28 lg:z-10 lg:self-start"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={fadeUp}
-        >
+        <div className="lg:col-span-7 lg:sticky lg:top-28 lg:z-10 lg:self-start">
           <form
             className="editorial-card relative overflow-hidden p-6 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-8 lg:p-10"
             onSubmit={handleSubmit(onSubmit)}
@@ -306,7 +250,6 @@ const EditorialContact = () => {
                 <textarea
                   id="ed-message"
                   rows={5}
-                  data-lenis-prevent
                   {...register("message", { required: "Required" })}
                   className="editorial-input resize-none"
                 />
@@ -324,7 +267,7 @@ const EditorialContact = () => {
               </button>
             </div>
           </form>
-        </m.div>
+        </div>
       </div>
     </EditorialSection>
   );

@@ -1,10 +1,8 @@
 import CountUp from "react-countup";
-import { m } from "framer-motion";
 import aboutme from "../assets/about-me.jpeg";
 import useGithubLifetimeCommits from "../hooks/useGithubLifetimeCommits";
 import { useOnScreen } from "./lib/useOnScreen";
 import EditorialSection from "./EditorialSection";
-import { EASE_SECTION } from "../Components/SectionReveal";
 
 const techChips = [
   "React",
@@ -16,22 +14,6 @@ const techChips = [
   "Redux",
   "REST APIs",
 ];
-
-const aboutStagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.06 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE_SECTION },
-  },
-};
 
 const EditorialAbout = () => {
   const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
@@ -55,14 +37,8 @@ const EditorialAbout = () => {
     >
       <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
         {/* Photo column */}
-        <m.div
-          className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={aboutStagger}
-        >
-          <m.div variants={fadeUp} className="relative">
+        <div className="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0">
+          <div className="relative">
             <div
               className="pointer-events-none absolute -bottom-4 -right-4 left-8 top-8 rounded-2xl border border-black/[0.07] bg-white/20"
               aria-hidden
@@ -87,31 +63,19 @@ const EditorialAbout = () => {
                 Gazipur, Bangladesh
               </p>
             </div>
-          </m.div>
-        </m.div>
+          </div>
+        </div>
 
         {/* Copy + cards + stats */}
         <div className="space-y-8 lg:col-span-7">
-          <m.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left"
-          >
+          <p className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left">
             I turn complex requirements into{" "}
             <span className="text-emerald-800">fast, accessible interfaces</span>{" "}
             — and reliable backends to power them.
-          </m.p>
+          </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <m.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={fadeUp}
-              className="editorial-card p-6 text-left"
-            >
+            <div className="editorial-card p-6 text-left">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -123,14 +87,8 @@ const EditorialAbout = () => {
                 Next.js, Redux, REST APIs, Firebase Auth — and React Native in
                 progress for mobile.
               </p>
-            </m.div>
-            <m.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={fadeUp}
-              className="editorial-card p-6 text-left"
-            >
+            </div>
+            <div className="editorial-card p-6 text-left">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
@@ -141,16 +99,10 @@ const EditorialAbout = () => {
                 Node.js, Express, MongoDB. Daily tools: VS Code, Cursor, Git,
                 GitHub, Vercel, Figma, Netlify — from prototype to production.
               </p>
-            </m.div>
+            </div>
           </div>
 
-          <m.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className="flex flex-wrap justify-center gap-2 lg:justify-start"
-          >
+          <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
             {techChips.map((t) => (
               <span
                 key={t}
@@ -159,15 +111,9 @@ const EditorialAbout = () => {
                 {t}
               </span>
             ))}
-          </m.div>
+          </div>
 
-          <m.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className="grid grid-cols-1 gap-3 sm:grid-cols-3"
-          >
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div
               ref={ref1}
               className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left"
@@ -224,7 +170,7 @@ const EditorialAbout = () => {
                 Roles shipped
               </p>
             </div>
-          </m.div>
+          </div>
 
           <p className="text-center text-xs text-[var(--ed-muted)] lg:text-left">
             Joydebpur, Gazipur · Open to remote-friendly collaborations

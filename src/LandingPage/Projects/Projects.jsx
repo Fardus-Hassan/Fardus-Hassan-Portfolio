@@ -1,28 +1,17 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { EASE_SECTION, RevealBlock, SectionReveal } from "../../Components/SectionReveal";
+import { RevealBlock, SectionReveal } from "../../Components/SectionReveal";
 
 const Projects = () => {
-  const reduce = useReducedMotion();
-  const headerDone = { opacity: 1, y: 0 };
-  const headerFrom = reduce ? headerDone : { opacity: 0, y: 26 };
-
   return (
     <SectionReveal id="projects" className="xl:w-[95%] mx-auto">
       <div className="xl:container w-[90%] lg:my-[150px] lg:mt-[150px] sm:mt-[180px] sm:my-[100px] my-20 mx-auto">
-        <motion.div
-          className="text-center"
-          initial={headerFrom}
-          whileInView={headerDone}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: reduce ? 0 : 0.52, ease: EASE_SECTION }}
-        >
+        <div className="text-center">
           <h3 className="font-bold font-jost lg:text-xl gradient-color">
             &lt;Projects/&gt;
           </h3>
           <h1 className="mt-2 text-black font-jost lg:text-[44px] text-[30px] font-bold">
             MY RECENT WORK
           </h1>
-        </motion.div>
+        </div>
         <div className="mt-10 space-y-8 lg:mt-14 lg:max-h-[75vh] max-h-[90vh] overflow-y-auto scrollBar">
           <RevealBlock className="lg:flex lg:items-center gap-6 lg:gap-8">
             <div className="lg:w-1/2">

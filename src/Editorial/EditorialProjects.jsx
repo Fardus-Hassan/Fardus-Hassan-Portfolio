@@ -1,19 +1,8 @@
 import { useState } from "react";
-import { m } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { HiOutlineRefresh } from "react-icons/hi";
-import { EASE_SECTION } from "../Components/SectionReveal";
 import EditorialSection from "./EditorialSection";
 import { editorialProjects } from "./data/projectsData";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE_SECTION },
-  },
-};
 
 const EditorialProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,13 +29,7 @@ const EditorialProjects = () => {
       subtitle="All previews load in the background so switching projects is instant. Each frame is the real deployment — if a host blocks embedding, use Open."
       className="!max-w-[1240px] px-1 xs:px-0"
     >
-      <m.div
-        className="relative mb-6 sm:mb-10 lg:mb-12"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-      >
+      <div className="relative mb-6 sm:mb-10 lg:mb-12">
         <div
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 hidden rounded-2xl border border-black/[0.07] bg-white/20 sm:block"
           aria-hidden
@@ -77,7 +60,7 @@ const EditorialProjects = () => {
             </div>
           </div>
         </div>
-      </m.div>
+      </div>
 
       {/* Mobile: preview first (order-1); desktop: grid with aside left */}
       <div className="grid min-w-0 grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10">
@@ -92,7 +75,6 @@ const EditorialProjects = () => {
             Swipe sideways to see all — tap to load the live site above.
           </p>
           <div
-            data-lenis-prevent
             className="editorial-picker-scroll -mx-2 flex gap-2.5 overflow-x-auto overscroll-x-contain px-2 pb-2 pt-0.5 scroll-smooth snap-x snap-mandatory sm:-mx-1 sm:gap-2 sm:px-1 lg:mx-0 lg:max-h-[min(70dvh,calc(100dvh-12rem))] lg:flex-col lg:gap-2 lg:overflow-y-auto lg:overflow-x-visible lg:px-0 lg:pb-0 lg:pr-2 lg:snap-none"
             role="tablist"
             aria-label="Project previews"

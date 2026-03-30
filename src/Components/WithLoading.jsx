@@ -1,9 +1,8 @@
+/* eslint-disable react/prop-types -- small wrapper; children is ReactNode */
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 
-
-
-const WithLoading = ({children}) => {
+const WithLoading = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

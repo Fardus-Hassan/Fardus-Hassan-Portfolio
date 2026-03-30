@@ -9,6 +9,7 @@ const useOnScreen = (options) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
@@ -16,11 +17,11 @@ const useOnScreen = (options) => {
       options
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (el) observer.observe(el);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (el) observer.unobserve(el);
     };
-  }, [ref, options]);
+  }, [options]);
 
   return [ref, isVisible];
 };

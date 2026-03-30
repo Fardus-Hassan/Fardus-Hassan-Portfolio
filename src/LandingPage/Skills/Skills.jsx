@@ -216,54 +216,6 @@ const Skills = () => {
           </div>
         </div>
       </div>
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-
-        /* Title Slide Down */
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-slideDown {
-          animation: slideDown 0.5s ease-out forwards;
-        }
-
-        /* Staggered Card Animation */
-        @keyframes slideFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.92);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        .animate-staggerItem {
-          animation: slideFadeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-          opacity: 0;
-        }
-
-        /* Hover lift effect already in Tailwind */
-      `}</style>
     </SectionReveal>
   );
 };

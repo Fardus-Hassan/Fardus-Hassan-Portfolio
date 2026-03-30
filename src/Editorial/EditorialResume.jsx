@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types -- internal resume card helpers */
-import { m } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdFileDownload } from "react-icons/md";
-import { EASE_SECTION } from "../Components/SectionReveal";
 import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
 import EditorialSection from "./EditorialSection";
 import {
@@ -11,22 +9,6 @@ import {
   editorialEducation,
   editorialExperiences,
 } from "./data/resumeData";
-
-const resumeStagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.06 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE_SECTION },
-  },
-};
 
 function MetaRow({ label, children }) {
   return (
@@ -47,10 +29,7 @@ function ExperienceCard({ job, index }) {
     accent === "emerald" ? "text-emerald-800" : "text-violet-800";
 
   return (
-    <m.article
-      variants={fadeUp}
-      className="editorial-card relative overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-8"
-    >
+    <article className="editorial-card relative overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-8">
       <div
         className={`pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl ${
           accent === "emerald" ? "bg-emerald-400/12" : "bg-violet-400/12"
@@ -123,16 +102,13 @@ function ExperienceCard({ job, index }) {
           </div>
         </div>
       </div>
-    </m.article>
+    </article>
   );
 }
 
 function CourseCard({ course, index }) {
   return (
-    <m.article
-      variants={fadeUp}
-      className="editorial-card relative h-full overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8"
-    >
+    <article className="editorial-card relative h-full overflow-hidden p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8">
       <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-400/10 blur-2xl" />
       <div className="relative mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-700">
@@ -167,7 +143,7 @@ function CourseCard({ course, index }) {
       <p className="relative leading-relaxed text-[var(--ed-muted)]">
         {course.summary}
       </p>
-    </m.article>
+    </article>
   );
 }
 
@@ -182,14 +158,8 @@ const EditorialResume = () => {
         className="!max-w-[1240px]"
       >
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
-          <m.div
-            className="mx-auto w-full max-w-lg space-y-6 lg:sticky lg:top-28 lg:z-10 lg:col-span-5 lg:mx-0 lg:self-start"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={resumeStagger}
-          >
-            <m.div variants={fadeUp} className="relative">
+          <div className="mx-auto w-full max-w-lg space-y-6 lg:sticky lg:top-28 lg:z-10 lg:col-span-5 lg:mx-0 lg:self-start">
+            <div className="relative">
               <div
                 className="pointer-events-none absolute -bottom-3 -right-3 left-6 top-6 rounded-2xl border border-black/[0.07] bg-white/20"
                 aria-hidden
@@ -217,12 +187,9 @@ const EditorialResume = () => {
                   Download resume
                 </a>
               </div>
-            </m.div>
+            </div>
 
-            <m.div
-              variants={fadeUp}
-              className="editorial-card flex items-start gap-4 p-5 sm:p-6"
-            >
+            <div className="editorial-card flex items-start gap-4 p-5 sm:p-6">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-black/[0.06] bg-white/60 text-gray-800">
                 <HiOutlineDocumentText className="text-xl" aria-hidden />
               </span>
@@ -242,20 +209,14 @@ const EditorialResume = () => {
                   and ATS-friendly formatting.
                 </p>
               </div>
-            </m.div>
-          </m.div>
+            </div>
+          </div>
 
-          <m.div
-            className="space-y-6 lg:col-span-7"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.12 }}
-            variants={resumeStagger}
-          >
+          <div className="space-y-6 lg:col-span-7">
             {editorialExperiences.map((job, i) => (
               <ExperienceCard key={job.company} job={job} index={i} />
             ))}
-          </m.div>
+          </div>
         </div>
       </EditorialSection>
 
@@ -267,17 +228,11 @@ const EditorialResume = () => {
         className="!max-w-[1240px] !pt-12 lg:!pt-16"
         delay={0.04}
       >
-        <m.div
-          className="grid gap-6 md:grid-cols-2 lg:gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.12 }}
-          variants={resumeStagger}
-        >
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
           {editorialCourses.map((course, i) => (
             <CourseCard key={course.title} course={course} index={i} />
           ))}
-        </m.div>
+        </div>
       </EditorialSection>
 
       <EditorialSection
@@ -288,13 +243,7 @@ const EditorialResume = () => {
         className="!max-w-[1240px] !pt-12 lg:!pt-16"
         delay={0.06}
       >
-        <m.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={fadeUp}
-          className="editorial-card relative overflow-hidden p-8 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-10 lg:p-12"
-        >
+        <div className="editorial-card relative overflow-hidden p-8 shadow-[0_24px_60px_rgba(0,0,0,0.06)] sm:p-10 lg:p-12">
           <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-violet-400/15 blur-3xl" />
           <div className="pointer-events-none absolute -left-10 top-12 h-40 w-40 rounded-full bg-emerald-400/8 blur-3xl" />
           <div className="relative grid gap-8 lg:grid-cols-12 lg:gap-12">
@@ -321,7 +270,7 @@ const EditorialResume = () => {
               </p>
             </div>
           </div>
-        </m.div>
+        </div>
       </EditorialSection>
     </div>
   );

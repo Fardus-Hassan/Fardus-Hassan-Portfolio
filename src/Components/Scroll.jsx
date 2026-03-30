@@ -26,7 +26,10 @@ function Scroll() {
   }, [onScroll]);
 
   const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const smooth =
+      typeof window !== "undefined" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
   };
 
   if (!visible) return null;

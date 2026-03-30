@@ -19,6 +19,7 @@
   font-style: normal;
 }
 
+/* Smooth scroll for in-page anchors (nav #links); wheel/trackpad stays native */
 html {
   scroll-behavior: smooth;
 }
@@ -27,22 +28,6 @@ html {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Lenis: avoid native smooth fighting inertia; keep document height natural */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-/* Lenis owns scrolling — native smooth on <html> would stack with inertia and feel “heavy” */
-html.lenis {
-  scroll-behavior: auto !important;
-  overscroll-behavior-y: contain;
-}
-
-html.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
 }
 
 :root {
@@ -250,6 +235,81 @@ body {
 
 .float-animation {
   animation: float 3s ease-in-out infinite;
+}
+
+.banner .wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: banner-wave-hand 2s infinite;
+}
+
+@keyframes banner-wave-hand {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(14deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  45% {
+    transform: rotate(14deg);
+  }
+  60% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* LandingPage/Skills.jsx */
+@keyframes skills-section-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: skills-section-marquee 30s linear infinite;
+}
+
+@keyframes skills-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: skills-slide-down 0.5s ease-out forwards;
+}
+
+@keyframes skills-stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-staggerItem {
+  animation: skills-stagger-fade-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
 }
 
 .gradient-color {

@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { useStaggerVariants } from '../../Components/SectionReveal';
 import { LuGithub } from "react-icons/lu";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -15,7 +13,6 @@ import typescript from "../../assets/typescript.png"
 import PDF from "../../assets/Junior_Software_Engineer_Fardus_Hassan .pdf"
 
 const Banner = () => {
-    const { container: heroStagger, item: heroItem } = useStaggerVariants();
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
@@ -38,13 +35,8 @@ const Banner = () => {
         }}>
             <div className='xl:py-[140px] py-10 relative duration-300 ease-out sm:mb-[150px] mb-20'>
                 <div className='container flex flex-col justify-center h-full 2xl:w-[80%] xl:w-[90%] w-[90%] mx-auto'>
-                    <motion.div
-                        className='flex xl:flex-row-reverse flex-col-reverse justify-between items-center md:gap-16 gap-10'
-                        variants={heroStagger}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <motion.div variants={heroItem}>
+                    <div className='flex xl:flex-row-reverse flex-col-reverse justify-between items-center md:gap-16 gap-10'>
+                        <div>
                             <div className="transition-transform duration-500 text-left ease-out rounded-3xl p-6 sm:p-8 md:p-10">
                                 <h1 className={` text-white overflow-hidden duration-300 ease-out lg:text-[55px] text-[35px] font-bold`} style={{
                                     transform: `translateY(${scrollPosition / -5}px)`
@@ -61,22 +53,6 @@ const Banner = () => {
                                 <p className='max-w-[800px] text-left duration-300 ease-out block text-white lg:text-[16px] text-[14px] sm:my-16 my-10 jost-regular' style={{
                                     transform: `translateY(${scrollPosition / -5}px)`
                                 }}>I am a passionate software developer. Despite not having a computer science background, my interest in programming has driven me to dive into this field. I am excited to build a career in both web and app development, continuously learning and exploring new technologies.</p>
-                                <style jsx>{`
-        .wave {
-          display: inline-block;
-          transform-origin: 70% 70%;
-          animation: wave 2s infinite;
-        }
-        @keyframes wave {
-          0% { transform: rotate(0deg); }
-          15% { transform: rotate(14deg); }
-          30% { transform: rotate(-8deg); }
-          45% { transform: rotate(14deg); }
-          60% { transform: rotate(-4deg); }
-          75% { transform: rotate(10deg); }
-          100% { transform: rotate(0deg); }
-        }
-      `}</style>
                                 <div className='flex sm:flex-row-reverse flex-col-reverse xl:justify-end justify-between sm:items-center items-start xl:gap-32 gap-10 duration-300 ease-out' style={{
                                     transform: `translateY(${scrollPosition / -5}px)`
                                 }}>
@@ -90,14 +66,14 @@ const Banner = () => {
                                 </div>
                             </div>
 
-                        </motion.div>
-                        <motion.div variants={heroItem} className="w-full flex justify-center xl:block xl:w-auto">
+                        </div>
+                        <div className="w-full flex justify-center xl:block xl:w-auto">
 
                             <img className='lg:min-w-[550px] resizing-image lg:h-[550px] md:h-[450px] h-[350px] object-cover duration-300 ease-out ' src={myimg} alt="" style={{
                                 transform: `translateY(${scrollPosition / -5}px)`
                             }} />
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
                 <img className='absolute top-8 left-5 lg:w-20 w-12 float-animation' src={react} alt="" />
                 <img className='absolute top-8 right-5 lg:w-[70px] w-12 rounded-xl float-animation' src={js} alt="" />
