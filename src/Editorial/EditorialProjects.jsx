@@ -97,8 +97,6 @@ const EditorialProjects = () => {
             className="editorial-picker-scroll -mx-2 flex gap-2.5 overflow-x-auto overscroll-x-contain px-2 pb-2 pt-0.5 scroll-smooth snap-x snap-mandatory sm:-mx-1 sm:gap-2 sm:px-1 lg:mx-0 lg:max-h-[min(70dvh,calc(100dvh-12rem))] lg:flex-col lg:gap-2 lg:overflow-y-auto lg:overflow-x-visible lg:px-0 lg:pb-0 lg:pr-2 lg:snap-none"
             role="tablist"
             aria-label="Project previews"
-            data-lenis-prevent-wheel
-            data-lenis-prevent-touch
           >
             {editorialProjects.map((p, i) => {
               const isActive = i === activeIndex;
@@ -243,8 +241,6 @@ const EditorialProjects = () => {
               className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
               data-aos="fade-in"
               data-aos-delay="340"
-              data-lenis-prevent-wheel
-              data-lenis-prevent-touch
             >
               {editorialProjects.map((p, i) => {
                 const isActive = i === activeIndex;
