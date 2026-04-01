@@ -170,14 +170,14 @@ const EditorialFooter = () => {
 
       <div
         className="mt-10 flex flex-col-reverse items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
-        data-aos="fade"
+        // data-aos="fade"
       >
         <p className="text-xs text-[var(--ed-muted)]">
           © {new Date().getFullYear()} Fardus Hassan. All rights reserved.
         </p>
         <div
           className="flex flex-wrap items-center justify-center gap-2 sm:justify-end"
-          data-aos="fade"
+          // data-aos="fade"
         >
           <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ed-muted)] sm:mr-1">
             Built with
@@ -186,7 +186,7 @@ const EditorialFooter = () => {
             <span
               key={t}
               className="rounded-full border border-black/[0.08] bg-white/50 px-3 py-1 text-xs font-semibold text-gray-800 backdrop-blur-sm"
-              data-aos="fade"
+              // data-aos="fade"
             >
               {t}
             </span>
