@@ -1,5 +1,12 @@
 export const editorialProjects = [
   {
+    name: "Cian Collective",
+    title: "Faith-based spiritual music collective website",
+    lines: [],
+    liveUrl: "https://www.ciancollective.org",
+    iframeSrc: "https://www.ciancollective.org/",
+  },
+  {
     name: "Qawmi Talim",
     title: "ERP-based Madrasha Management Software",
     lines: ["User Name: admin_demo", "Password: admin123"],
@@ -7,11 +14,11 @@ export const editorialProjects = [
     iframeSrc: "https://demo.qawmitalim.online/",
   },
   {
-    name: "Cian Collective",
-    title: "Faith-based spiritual music collective website",
+    name: "Dima 360 AI",
+    title: "A R&D Base Company Portfolio",
     lines: [],
-    liveUrl: "https://www.ciancollective.org",
-    iframeSrc: "https://www.ciancollective.org/",
+    liveUrl: "https://dima360ai.com",
+    iframeSrc: "https://dima360ai.com/",
   },
   {
     name: "DevDive",
@@ -27,25 +34,18 @@ export const editorialProjects = [
     liveUrl: "https://employee-flow.web.app/",
     iframeSrc: "https://employee-flow.web.app/",
   },
-  {
-    name: "EventX",
-    title: "Event Management Website",
-    lines: [],
-    liveUrl: "https://eventx-7378e.web.app/",
-    iframeSrc: "https://eventx-7378e.web.app/",
-  },
-  {
-    name: "Trip Trove",
-    title: "Tourism Spot Viewing Website",
-    lines: [],
-    liveUrl: "https://trip-trove-1d68d.web.app/",
-    iframeSrc: "https://trip-trove-1d68d.web.app/",
-  },
-  {
-    name: "Dream Land",
-    title: "Land viewing website",
-    lines: [],
-    liveUrl: "https://dream-land-17173.web.app/",
-    iframeSrc: "https://dream-land-17173.web.app/",
-  },
+  // {
+  //   name: "EventX",
+  //   title: "Event Management Website",
+  //   lines: [],
+  //   liveUrl: "https://eventx-7378e.web.app/",
+  //   iframeSrc: "https://eventx-7378e.web.app/",
+  // },
+  // {
+  //   name: "Trip Trove",
+  //   title: "Tourism Spot Viewing Website",
+  //   lines: [],
+  //   liveUrl: "https://trip-trove-1d68d.web.app/",
+  //   iframeSrc: "https://trip-trove-1d68d.web.app/",
+  // },
 ];
