@@ -6,6 +6,10 @@ import { editorialProjects } from "./data/projectsData";
 
 const EditorialProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  /** Only assign real iframe src after a project tab has been opened (avoids loading every URL on first paint). */
+  const [loadedIframeIndices, setLoadedIframeIndices] = useState(
+    () => new Set([0])
+  );
   const [reloadKeys, setReloadKeys] = useState(() =>
     editorialProjects.map(() => 0)
   );
@@ -26,13 +30,14 @@ const EditorialProjects = () => {
       id="projects"
       kicker="Projects"
       title="Live work — browse in place"
-      subtitle="All previews load in the background so switching projects is instant. Each frame is the real deployment — if a host blocks embedding, use Open."
+      subtitle="Previews load when you pick a project (saves bandwidth on first visit). Each frame is the real deployment — if a host blocks embedding, use Open."
       className="!max-w-[1240px] px-1 xs:px-0"
     >
       <div
         className="relative mb-6 sm:mb-10 lg:mb-12"
         data-aos="fade-up"
         data-aos-delay="80"
+        loading="lazy"
       >
         <div
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 hidden rounded-2xl border border-black/[0.07] bg-white/20 sm:block"
@@ -108,7 +113,10 @@ const EditorialProjects = () => {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveIndex(i)}
+                  onClick={() => {
+                    setActiveIndex(i);
+                    setLoadedIframeIndices((prev) => new Set(prev).add(i));
+                  }}
                   className={`snap-center min-h-[44px] w-[min(86vw,19.5rem)] shrink-0 rounded-2xl border px-4 py-3.5 text-left transition-all active:scale-[0.99] sm:snap-start sm:min-h-0 sm:min-w-[200px] sm:w-auto sm:py-3 lg:w-full ${
                     isActive
                       ? "border-gray-950 bg-gray-950 text-white shadow-lg shadow-black/15"
@@ -220,25 +228,25 @@ const EditorialProjects = () => {
                 {displayHost}
               </div>
             </div>
+  {/* 
+              {active.lines?.length ? (
+                <div
+                  className="border-b border-amber-200/70 bg-amber-50/95 px-3 py-2.5 text-xs text-amber-950 sm:px-4"
+                  data-aos="fade-in"
+                  data-aos-delay="310"
+                >
+                  <p className="font-bold uppercase tracking-[0.12em] text-amber-900/90">
+                    Demo access
+                  </p>
+                  <ul className="mt-1 space-y-0.5 break-words font-mono text-[11px] text-amber-950/90">
+                    {active.lines.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null} */}
 
-            {active.lines?.length ? (
-              <div
-                className="border-b border-amber-200/70 bg-amber-50/95 px-3 py-2.5 text-xs text-amber-950 sm:px-4"
-                data-aos="fade-in"
-                data-aos-delay="310"
-              >
-                <p className="font-bold uppercase tracking-[0.12em] text-amber-900/90">
-                  Demo access
-                </p>
-                <ul className="mt-1 space-y-0.5 break-words font-mono text-[11px] text-amber-950/90">
-                  {active.lines.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            {/* One iframe per project, all mounted + eager — only the active layer is visible & interactive */}
+            {/* One iframe per project; src is set only after that tab was opened at least once */}
             <div
               className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
               data-aos="fade-in"
@@ -248,12 +256,13 @@ const EditorialProjects = () => {
             >
               {editorialProjects.map((p, i) => {
                 const isActive = i === activeIndex;
+                const shouldLoad = loadedIframeIndices.has(i);
                 return (
                   <iframe
                     key={`${p.iframeSrc}-${reloadKeys[i]}`}
                     title={`${p.name} — live site`}
-                    src={p.iframeSrc}
-                    loading="eager"
+                    src={shouldLoad ? p.iframeSrc : "about:blank"}
+                    loading={shouldLoad ? "lazy" : "eager"}
                     referrerPolicy="no-referrer-when-downgrade"
                     tabIndex={isActive ? 0 : -1}
                     aria-hidden={!isActive}
@@ -273,9 +282,9 @@ const EditorialProjects = () => {
             data-aos="fade-in"
             data-aos-delay="420"
           >
-            Every project loads in its own frame in the background (heavier on
-            first visit). If a preview stays blank, the host may block iframes —
-            use <strong className="font-semibold text-gray-800">Open</strong>.
+            Each project loads in its frame when you select it. If a preview
+            stays blank, the host may block iframes — use{" "}
+            <strong className="font-semibold text-gray-800">Open</strong>.
           </p>
         </div>
       </div>

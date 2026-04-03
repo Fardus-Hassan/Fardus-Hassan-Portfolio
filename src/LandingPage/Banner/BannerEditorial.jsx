@@ -167,6 +167,7 @@ const BannerEditorial = () => {
                   src={myimg}
                   alt="Fardus Hassan"
                   className="aspect-[3/3.65] w-full object-cover object-top grayscale transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0 sm:aspect-[3/3.55]"
+                  loading="lazy"
                 />
               </div>
 

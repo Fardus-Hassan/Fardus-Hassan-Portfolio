@@ -34,11 +34,14 @@ const EditorialAbout = () => {
       title="Code, craft, and clarity"
       subtitle="Mechanical engineering roots — now shipping full-stack web products with a focus on UX and maintainability."
       className="!max-w-[1240px]"
+      loading="lazy"
+
     >
       <div
         className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14"
         data-aos="fade-up"
         data-aos-delay="80"
+        loading="lazy"
       >
         {/* Photo column */}
         <div
@@ -57,6 +60,7 @@ const EditorialAbout = () => {
                   className="aspect-[3/3.85] w-full object-cover object-top grayscale transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
                   src={aboutme}
                   alt="Fardus Hassan"
+                  loading="lazy"
                 />
               </div>
               <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800 shadow-sm backdrop-blur-sm">
@@ -130,7 +134,7 @@ const EditorialAbout = () => {
               data-aos="flip-up"
               data-aos-delay="390"
             >
-              <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
+              {/* <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible1 ? (
                   loading ? (
                     "…"
@@ -154,7 +158,17 @@ const EditorialAbout = () => {
                 <p className="mt-1 text-center text-xs text-red-600 sm:text-left">
                   {error}
                 </p>
-              ) : null}
+              ) : null} */}
+              <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
+                {isVisible2 ? (
+                  <CountUp end={40} duration={3} suffix="+" />
+                ) : (
+                  "2"
+                )}
+              </p>
+              <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
+              Projects Built
+              </p>
             </div>
             <div
               ref={ref2}
@@ -164,13 +178,13 @@ const EditorialAbout = () => {
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible2 ? (
-                  <CountUp end={100} duration={3} suffix="%" />
+                  <CountUp end={2} duration={3} suffix="+" />
                 ) : (
-                  "100%"
+                  "2+"
                 )}
               </p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
-                Commitment
+              Years Experience
               </p>
             </div>
             <div
@@ -180,10 +194,10 @@ const EditorialAbout = () => {
               data-aos-delay="470"
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
-                {isVisible3 ? <CountUp end={2} duration={3} suffix="+" /> : "2+"}
+                {isVisible3 ? <CountUp end={2} duration={3} suffix="" /> : "2"}
               </p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
-                Roles shipped
+              Companies
               </p>
             </div>
           </div>
