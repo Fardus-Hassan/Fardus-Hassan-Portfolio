@@ -1,6 +1,6 @@
 import CountUp from "react-countup";
 import aboutme from "../assets/about-me.jpeg";
-import useGithubLifetimeCommits from "../hooks/useGithubLifetimeCommits";
+// import useGithubLifetimeCommits from "../hooks/useGithubLifetimeCommits";
 import { useOnScreen } from "./lib/useOnScreen";
 import EditorialSection from "./EditorialSection";
 
@@ -16,12 +16,12 @@ const techChips = [
 ];
 
 const EditorialAbout = () => {
-  const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
-  const token = import.meta.env.VITE_GITHUB_TOKEN;
-  const { totalCommits, loading, error } = useGithubLifetimeCommits(
-    GITHUB_USERNAME,
-    token
-  );
+  // const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
+  // const token = import.meta.env.VITE_GITHUB_TOKEN;
+  // const { totalCommits, loading, error } = useGithubLifetimeCommits(
+  //   GITHUB_USERNAME,
+  //   token
+  // );
 
   const [ref1, isVisible1] = useOnScreen({ threshold: 0.1 });
   const [ref2, isVisible2] = useOnScreen({ threshold: 0.1 });
