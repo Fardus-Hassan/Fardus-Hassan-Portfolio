@@ -144,12 +144,12 @@ const EditorialFooter = () => {
               Open to freelance, collaborations, and full-time roles.
             </p>
             <div
-              className="flex flex-wrap sm:justify-start justify-center items-center gap-2"
+              className="flex lg:flex-wrap lg:justify-start justify-center items-center gap-2"
               data-aos="fade"
             >
             <a
               href="mailto:fardus.dev@gmail.com"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-950 py-3 text-xs font-semibold text-white shadow-lg shadow-black/10 transition-all hover:bg-gray-900 sm:w-auto sm:px-5"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-950 py-3 text-xs font-semibold text-white shadow-lg shadow-black/10 transition-all hover:bg-gray-900 lg:w-auto sm:px-5"
               data-aos="fade"
             >
               <HiOutlineMail className="text-base" aria-hidden />
@@ -157,7 +157,7 @@ const EditorialFooter = () => {
             </a>
             <a
               href="#contact"
-              className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950 lg:justify-start"
+              className="mt-5 inline-flex w-full lg:w-auto items-center justify-center gap-1.5 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950 lg:justify-start"
               data-aos="fade"
             >
               Contact form
