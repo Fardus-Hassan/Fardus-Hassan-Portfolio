@@ -217,7 +217,7 @@ const EditorialSkills = () => {
             </span>
           </div>
           <div
-            className="flex flex-wrap justify-center gap-2 lg:flex-col lg:gap-2"
+            className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-2"
             role="tablist"
             aria-label="Skill categories"
           >

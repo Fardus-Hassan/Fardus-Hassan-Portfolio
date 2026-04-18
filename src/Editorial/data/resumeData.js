@@ -45,7 +45,7 @@ export const editorialCourses = [
     period: "Jan 2024 — Jun 2024",
     provider: "Programming Hero",
     certificateLabel: "Certificate",
-    certificateUrl: null,
+    certificateUrl: "https://drive.google.com/file/d/1t1D_81Yjw4TO-Ud0jFYoBkftyKPBaBv0/view",
     summary:
       "Strong focus on front-end development and full-stack project implementation, from fundamentals to shipping real projects.",
   },
@@ -55,7 +55,7 @@ export const editorialCourses = [
     period: "Apr 2023 — Aug 2023",
     provider: "Eshikhon",
     certificateLabel: "Certificate",
-    certificateUrl: null,
+    certificateUrl: "https://drive.google.com/file/d/11Q9-rCzmFNcq_dMEeynCHtVpOqVTTPVZ/view",
     summary:
       "Pixel-perfect layout and strong foundations in HTML, CSS, JavaScript, and jQuery for responsive interfaces.",
   },

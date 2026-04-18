@@ -127,10 +127,10 @@ const EditorialAbout = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="380">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="380">
             <div
               ref={ref1}
-              className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left"
+              className="editorial-card flex flex-col justify-center p-6 text-center sm:text-left col-span-2 sm:col-span-1"
               data-aos="flip-up"
               data-aos-delay="390"
             >
