@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
+import PDF from "../assets/Software_Engineer_Fardus_Hassan_Resume.pdf";
 import { MdFileDownload } from "react-icons/md";
 
 const links = [
@@ -169,7 +169,7 @@ const EditorialNav = () => {
             <div className="hidden items-center gap-3 lg:flex">
               <a
                 href={PDF}
-                download="Fardus_Hassan_Resume"
+                download="Software_Engineer_Fardus_Hassan_Resume.pdf"
                 className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-4 py-2 text-xs font-semibold text-white shadow-md transition-transform hover:scale-[1.02] sm:text-sm"
               >
                 <MdFileDownload className="text-base" aria-hidden />
@@ -216,7 +216,7 @@ const EditorialNav = () => {
                   ))}
                   <a
                     href={PDF}
-                    download="Fardus_Hassan_Resume"
+                    download="Software_Engineer_Fardus_Hassan_Resume.pdf"
                     className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#1a1a1a] py-2.5 text-sm font-semibold text-white"
                     onClick={closeMenu}
                   >

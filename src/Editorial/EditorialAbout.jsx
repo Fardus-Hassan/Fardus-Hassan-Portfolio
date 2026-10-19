@@ -8,11 +8,11 @@ const techChips = [
   "React",
   "Next.js",
   "TypeScript",
-  "Node.js",
-  "MongoDB",
+  "NestJS",
+  "PostgreSQL",
+  "Prisma",
   "Tailwind",
-  "Redux",
-  "REST APIs",
+  "AI SDK",
 ];
 
 const EditorialAbout = () => {
@@ -31,8 +31,8 @@ const EditorialAbout = () => {
     <EditorialSection
       id="about"
       kicker="About"
-      title="Code, craft, and clarity"
-      subtitle="Mechanical engineering roots — now shipping full-stack web products with a focus on UX and maintainability."
+      title="SaaS, ERP, and clean product UI"
+      subtitle="4+ years building production platforms with React, Next.js, NestJS, and TypeScript — plus AI integration and React Native."
       className="!max-w-[1240px]"
       loading="lazy"
 
@@ -59,7 +59,7 @@ const EditorialAbout = () => {
                 <img
                   className="aspect-[3/3.85] w-full object-cover object-top grayscale transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
                   src={aboutme}
-                  alt="Fardus Hassan"
+                  alt="Md. Fardus Hassan"
                   loading="lazy"
                 />
               </div>
@@ -72,7 +72,7 @@ const EditorialAbout = () => {
                 Based in
               </p>
               <p className="mt-1 text-sm font-bold text-gray-950">
-                Gazipur, Bangladesh
+                Gazipur, Dhaka
               </p>
             </div>
           </div>
@@ -81,9 +81,9 @@ const EditorialAbout = () => {
         {/* Copy + cards + stats */}
         <div className="space-y-8 lg:col-span-7" data-aos="fade-up" data-aos-delay="150">
           <p className="text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left" data-aos="fade-up">
-            I turn complex requirements into{" "}
-            <span className="text-emerald-800">fast, accessible interfaces</span>{" "}
-            — and reliable backends to power them.
+            I ship{" "}
+            <span className="text-emerald-800">scalable SaaS and ERP systems</span>{" "}
+            — 10+ production platforms, from institutes to e-commerce.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2" data-aos="fade-up" data-aos-delay="220">
@@ -91,25 +91,25 @@ const EditorialAbout = () => {
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
-                  Front-end &amp; product
+                  Front-end
                 </h3>
               </div>
               <p className="text-sm leading-relaxed text-gray-800">
-                HTML5, CSS3, Tailwind, Bootstrap, JavaScript, TypeScript, React,
-                Next.js, Redux, REST APIs, Firebase Auth — and React Native in
-                progress for mobile.
+                React.js, Next.js, TypeScript, JavaScript, Redux, Zustand,
+                TanStack Query, React Native, Tailwind CSS, Bootstrap, Three.js,
+                and REST API integration.
               </p>
             </div>
             <div className="editorial-card p-6 text-left" data-aos="fade-up" data-aos-delay="290">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
-                  Backend &amp; workflow
+                  Backend &amp; data
                 </h3>
               </div>
               <p className="text-sm leading-relaxed text-gray-800">
-                Node.js, Express, MongoDB. Daily tools: VS Code, Cursor, Git,
-                GitHub, Vercel, Figma, Netlify — from prototype to production.
+                Node.js, Express.js, NestJS, MongoDB, PostgreSQL, Prisma, Redis,
+                JWT, and OpenAI / AI SDKs — auth, APIs, and production data.
               </p>
             </div>
           </div>
@@ -160,14 +160,14 @@ const EditorialAbout = () => {
                 </p>
               ) : null} */}
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
-                {isVisible2 ? (
-                  <CountUp end={40} duration={3} suffix="+" />
+                {isVisible1 ? (
+                  <CountUp end={4} duration={2.2} suffix="+" />
                 ) : (
-                  "2"
+                  "4+"
                 )}
               </p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
-              Projects Built
+                Years experience
               </p>
             </div>
             <div
@@ -178,13 +178,13 @@ const EditorialAbout = () => {
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
                 {isVisible2 ? (
-                  <CountUp end={2} duration={3} suffix="+" />
+                  <CountUp end={10} duration={2.4} suffix="+" />
                 ) : (
-                  "2+"
+                  "10+"
                 )}
               </p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
-              Years Experience
+                Production platforms
               </p>
             </div>
             <div
@@ -194,16 +194,16 @@ const EditorialAbout = () => {
               data-aos-delay="470"
             >
               <p className="text-3xl font-bold tabular-nums text-gray-950 sm:text-4xl">
-                {isVisible3 ? <CountUp end={2} duration={3} suffix="" /> : "2"}
+                {isVisible3 ? <CountUp end={4} duration={2.2} /> : "4"}
               </p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
-              Companies
+                Roles
               </p>
             </div>
           </div>
 
           <p className="text-center text-xs text-[var(--ed-muted)] lg:text-left" data-aos="fade-up" data-aos-delay="520">
-            Joydebpur, Gazipur · Open to remote-friendly collaborations
+            Gazipur, Dhaka, Bangladesh · Diploma in Mechanical Engineering, MIST
           </p>
         </div>
       </div>

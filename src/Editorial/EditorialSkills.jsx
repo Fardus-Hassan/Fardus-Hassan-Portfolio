@@ -2,85 +2,94 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import {
-  FaHtml5,
-  FaCss3Alt,
   FaJsSquare,
   FaReact,
   FaBootstrap,
   FaNodeJs,
   FaGitAlt,
   FaGithub,
-  FaFigma,
-  FaTrello,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
-  SiFirebase,
   SiMongodb,
   SiExpress,
   SiNextdotjs,
   SiRedux,
   SiTypescript,
-  SiVisualstudiocode,
   SiNetlify,
   SiVercel,
-  SiCanva,
   SiOpenai,
-  SiAnthropic,
+  SiReactquery,
+  SiThreedotjs,
+  SiNestjs,
+  SiPostgresql,
+  SiPrisma,
+  SiRedis,
+  SiJsonwebtokens,
+  SiDocker,
+  SiGithubactions,
+  SiNginx,
+  SiPostman,
+  SiLinux,
+  SiPm2,
 } from "react-icons/si";
-import { TbBrandReactNative, TbRobot } from "react-icons/tb";
-import { RiAiGenerate } from "react-icons/ri";
+import { TbApi, TbBrandReactNative } from "react-icons/tb";
+import { HiOutlineCube, HiOutlineLockClosed, HiOutlineServer, HiOutlineSparkles } from "react-icons/hi";
 import EditorialSection from "./EditorialSection";
 
 const skillCategories = [
   {
     title: "Frontend",
-    blurb: "Markup, styling systems, and typed UI logic.",
-    skills: [
-      { icon: <FaHtml5 className="text-gray-800" />, name: "HTML5" },
-      { icon: <FaCss3Alt className="text-gray-800" />, name: "CSS3" },
-      { icon: <SiTailwindcss className="text-gray-800" />, name: "Tailwind CSS" },
-      { icon: <FaBootstrap className="text-gray-800" />, name: "Bootstrap 5" },
-      { icon: <FaJsSquare className="text-gray-800" />, name: "JavaScript" },
-      { icon: <SiTypescript className="text-gray-800" />, name: "TypeScript" },
-    ],
-  },
-  {
-    title: "Frameworks & Libraries",
-    blurb: "Apps, routing, state, and native targets.",
+    blurb: "Interfaces, state, and typed UI for web and mobile.",
     skills: [
       { icon: <FaReact className="text-gray-800" />, name: "React.js" },
       { icon: <SiNextdotjs className="text-gray-800" />, name: "Next.js" },
-      { icon: <TbBrandReactNative className="text-gray-800" />, name: "React Native" },
+      { icon: <SiTypescript className="text-gray-800" />, name: "TypeScript" },
+      { icon: <FaJsSquare className="text-gray-800" />, name: "JavaScript" },
       { icon: <SiRedux className="text-gray-800" />, name: "Redux" },
+      { icon: <HiOutlineCube className="text-gray-800" />, name: "Zustand" },
+      { icon: <SiReactquery className="text-gray-800" />, name: "TanStack Query" },
+      { icon: <TbBrandReactNative className="text-gray-800" />, name: "React Native" },
+      { icon: <SiTailwindcss className="text-gray-800" />, name: "Tailwind CSS" },
+      { icon: <FaBootstrap className="text-gray-800" />, name: "Bootstrap" },
+      { icon: <TbApi className="text-gray-800" />, name: "REST API Integration" },
+      { icon: <SiThreedotjs className="text-gray-800" />, name: "Three.js" },
     ],
   },
   {
-    title: "Backend & Database",
-    blurb: "Services, data, and auth in production.",
+    title: "Backend",
+    blurb: "APIs, data, auth, and AI SDKs in production.",
     skills: [
       { icon: <FaNodeJs className="text-gray-800" />, name: "Node.js" },
       { icon: <SiExpress className="text-gray-800" />, name: "Express.js" },
+      { icon: <SiNestjs className="text-gray-800" />, name: "NestJS" },
       { icon: <SiMongodb className="text-gray-800" />, name: "MongoDB" },
-      { icon: <SiFirebase className="text-gray-800" />, name: "Firebase" },
+      { icon: <SiPostgresql className="text-gray-800" />, name: "PostgreSQL" },
+      { icon: <SiPrisma className="text-gray-800" />, name: "Prisma" },
+      { icon: <SiRedis className="text-gray-800" />, name: "Redis" },
+      { icon: <SiJsonwebtokens className="text-gray-800" />, name: "JWT" },
+      { icon: <TbApi className="text-gray-800" />, name: "REST API Development" },
+      { icon: <HiOutlineLockClosed className="text-gray-800" />, name: "Auth" },
+      { icon: <SiOpenai className="text-gray-800" />, name: "OpenAI SDK" },
+      { icon: <HiOutlineSparkles className="text-gray-800" />, name: "AI SDK" },
     ],
   },
   {
-    title: "Tools & Platforms",
-    blurb: "Workflow, design handoff, deploy, and AI assist.",
+    title: "DevOps Tools",
+    blurb: "Source control, containers, CI, and deployment.",
     skills: [
-      { icon: <SiVisualstudiocode className="text-gray-800" />, name: "VS Code" },
       { icon: <FaGitAlt className="text-gray-800" />, name: "Git" },
       { icon: <FaGithub className="text-gray-800" />, name: "GitHub" },
-      { icon: <FaFigma className="text-gray-800" />, name: "Figma" },
-      { icon: <SiNetlify className="text-gray-800" />, name: "Netlify" },
+      { icon: <SiDocker className="text-gray-800" />, name: "Docker" },
+      { icon: <SiGithubactions className="text-gray-800" />, name: "GitHub Actions" },
       { icon: <SiVercel className="text-gray-800" />, name: "Vercel" },
-      { icon: <FaTrello className="text-gray-800" />, name: "Trello" },
-      { icon: <SiCanva className="text-gray-800" />, name: "Canva" },
-      { icon: <RiAiGenerate className="text-gray-800" />, name: "Cursor AI" },
-      { icon: <SiAnthropic className="text-gray-800" />, name: "Claude AI" },
-      { icon: <SiOpenai className="text-gray-800" />, name: "ChatGPT" },
-      { icon: <TbRobot className="text-gray-800" />, name: "Grok" },
+      { icon: <SiNetlify className="text-gray-800" />, name: "Netlify" },
+      { icon: <SiNginx className="text-gray-800" />, name: "Nginx" },
+      { icon: <SiPm2 className="text-gray-800" />, name: "PM2" },
+      { icon: <HiOutlineServer className="text-gray-800" />, name: "VPS Deployment" },
+      { icon: <SiGithubactions className="text-gray-800" />, name: "CI/CD" },
+      { icon: <SiPostman className="text-gray-800" />, name: "Postman" },
+      { icon: <SiLinux className="text-gray-800" />, name: "Linux" },
     ],
   },
 ];
@@ -123,7 +132,7 @@ const EditorialSkills = () => {
       id="skills"
       kicker="Skills"
       title="Stack I build and ship with"
-      subtitle="From interface polish to APIs and deployment — the tools behind real products in production, not demo tutorials."
+      subtitle="Frontend, backend, and DevOps tools behind production SaaS, ERP, and e-commerce systems."
       className="!max-w-[1240px]"
     >
       <div className="relative mb-12 lg:mb-14">
@@ -143,15 +152,16 @@ const EditorialSkills = () => {
                 </span>
               </div>
               <p className="mt-4 text-center font-jost text-xl font-semibold leading-snug tracking-tight text-gray-950 sm:text-2xl lg:text-left">
-                I lead with{" "}
-                <span className="text-emerald-800">React ecosystems</span>, ship
-                full features on the MERN stack, and care about{" "}
-                <span className="text-violet-800">design-to-code</span> quality.
+                Day to day I ship with{" "}
+                <span className="text-emerald-800">React, Next.js, and NestJS</span>,
+                and wire in{" "}
+                <span className="text-violet-800">AI SDKs</span> where the product
+                needs them.
               </p>
               <p className="mt-3 text-center text-sm leading-relaxed text-[var(--ed-muted)] lg:text-left">
-                ERP, marketing sites, and internal tools — same discipline:
-                accessible UI, predictable state, and deploy pipelines you can
-                trust.
+                PostgreSQL and Prisma for data, Docker and GitHub Actions for
+                delivery, Nginx and PM2 on VPS when a product stays on its own
+                server.
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-2 lg:flex-col lg:items-stretch lg:justify-center">

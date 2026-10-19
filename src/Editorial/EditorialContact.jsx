@@ -161,10 +161,10 @@ const EditorialContact = () => {
                   </span>
                 </div>
                 <p className="font-semibold text-gray-950">
-                  Gazipur District, Dhaka, Bangladesh
+                  Gazipur, Dhaka, Bangladesh
                 </p>
                 <p className="mt-1 text-xs text-[var(--ed-muted)]">
-                  Remote-friendly · Joydebpur, Gazipur
+                  WhatsApp · +880 1722092675
                 </p>
               </div>
             </div>

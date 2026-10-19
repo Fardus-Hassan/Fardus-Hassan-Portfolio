@@ -3,7 +3,7 @@ import { LuGithub } from "react-icons/lu";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { MdFileDownload } from "react-icons/md";
-import PDF from "../../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
+import PDF from "../../assets/Software_Engineer_Fardus_Hassan_Resume.pdf";
 import myimg from "../../assets/me.png";
 
 const socials = [
@@ -28,9 +28,9 @@ const socials = [
 const stackChips = [
   "React",
   "Next.js",
-  "Node.js",
-  "MongoDB",
   "TypeScript",
+  "NestJS",
+  "PostgreSQL",
   "Tailwind",
 ];
 
@@ -86,11 +86,11 @@ const BannerEditorial = () => {
             </div>
 
             <h1 className="font-jost text-[clamp(2.35rem,6.5vw,3.85rem)] font-bold leading-[1.06] tracking-[-0.035em] text-gray-950">
-              Fardus Hassan
+              Md. Fardus Hassan
             </h1>
 
             <p className="font-jost text-[11px] font-bold uppercase tracking-[0.28em] text-[#5c5a56] sm:text-xs sm:tracking-[0.32em]">
-              Software Developer · MERN Stack
+              Software Engineer
             </p>
 
             <div
@@ -99,14 +99,14 @@ const BannerEditorial = () => {
             />
 
             <p className="mx-auto max-w-xl font-jost text-lg font-semibold leading-snug tracking-tight text-gray-950 sm:text-xl lg:mx-0 lg:max-w-lg">
-              I ship{" "}
-              <span className="text-emerald-800">responsive web apps &amp; ERP</span>{" "}
-              with React — performance, accessibility, and UI clarity first.
+              I build{" "}
+              <span className="text-emerald-800">scalable SaaS &amp; ERP</span>{" "}
+              with React, Next.js, NestJS, and TypeScript.
             </p>
 
             <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-[#5c5a56] sm:text-base lg:mx-0">
-              Front-end and full-stack work for institutes and product teams — from
-              first prototype to stable releases in production.
+              4+ years shipping production ERP and e-commerce platforms — with a
+              focus on AI integration, clean design, and React Native.
             </p>
 
             <div
@@ -128,7 +128,7 @@ const BannerEditorial = () => {
               </a>
               <a
                 href={PDF}
-                download="Fardus_Hassan_Resume"
+                download="Software_Engineer_Fardus_Hassan_Resume.pdf"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-black/[0.1] px-5 py-2.5 text-sm font-semibold text-gray-800 transition-colors hover:border-black/18 hover:bg-black/[0.03]"
               >
                 <MdFileDownload className="text-lg" aria-hidden />
@@ -165,7 +165,7 @@ const BannerEditorial = () => {
               <div className="relative overflow-hidden rounded-xl">
                 <img
                   src={myimg}
-                  alt="Fardus Hassan"
+                  alt="Md. Fardus Hassan"
                   className="aspect-[3/3.65] w-full object-cover object-top grayscale transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0 sm:aspect-[3/3.55]"
                   loading="lazy"
                 />
@@ -180,7 +180,7 @@ const BannerEditorial = () => {
                   Based in
                 </p>
                 <p className="mt-0.5 text-xs font-bold text-gray-950 sm:text-sm">
-                  Gazipur, Bangladesh
+                  Gazipur, Dhaka
                 </p>
               </div>
             </div>

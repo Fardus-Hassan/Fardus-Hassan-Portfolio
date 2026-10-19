@@ -6,16 +6,16 @@ import { editorialProjects } from "./data/projectsData";
 
 const EditorialProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  /** Only assign real iframe src after a project tab has been opened (avoids loading every URL on first paint). */
-  const [loadedIframeIndices, setLoadedIframeIndices] = useState(
-    () => new Set([0])
-  );
-  const [reloadKeys, setReloadKeys] = useState(() =>
-    editorialProjects.map(() => 0)
-  );
+  const [loadedIframeIndices, setLoadedIframeIndices] = useState(() => new Set([0]));
+  const [reloadKeys, setReloadKeys] = useState(() => editorialProjects.map(() => 0));
 
   const active = editorialProjects[activeIndex];
-  const displayHost = active.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const hasPreview = Boolean(active.iframeSrc && active.liveUrl);
+  const liveCount = editorialProjects.filter((p) => p.liveUrl).length;
+  const confidentialCount = editorialProjects.length - liveCount;
+  const displayHost = hasPreview
+    ? active.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    : "";
 
   const reloadActivePreview = () => {
     setReloadKeys((prev) => {
@@ -30,14 +30,13 @@ const EditorialProjects = () => {
       id="projects"
       kicker="Projects"
       title="Live work — browse in place"
-      subtitle="Previews load when you pick a project (saves bandwidth on first visit). Each frame is the real deployment — if a host blocks embedding, use Open."
+      subtitle="Public sites load in the frame when you pick them. Confidential client systems stay as a feature write-up, without a link."
       className="!max-w-[1240px] px-1 xs:px-0"
     >
       <div
         className="relative mb-6 sm:mb-10 lg:mb-12"
         data-aos="fade-up"
         data-aos-delay="80"
-        loading="lazy"
       >
         <div
           className="pointer-events-none absolute -bottom-2 -right-2 left-6 top-6 hidden rounded-2xl border border-black/[0.07] bg-white/20 sm:block"
@@ -61,17 +60,16 @@ const EditorialProjects = () => {
             </div>
             <div className="flex flex-wrap justify-center gap-2 lg:justify-end">
               <span className="rounded-full border border-black/[0.08] bg-white/55 px-3 py-1.5 text-xs font-semibold text-gray-800 backdrop-blur-sm">
-                {editorialProjects.length} deployments
+                {editorialProjects.length} projects
               </span>
               <span className="rounded-full border border-black/[0.08] bg-white/55 px-3 py-1.5 text-xs font-semibold text-gray-800 backdrop-blur-sm">
-                Full-width iframe
+                {liveCount} live · {confidentialCount} confidential
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile: preview first (order-1); desktop: grid with aside left */}
       <div
         className="grid min-w-0 grid-cols-1 items-start gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-10"
         data-aos="fade-up"
@@ -82,20 +80,13 @@ const EditorialProjects = () => {
           data-aos="fade-in"
           data-aos-delay="150"
         >
-          <div
-            className="mb-2 flex items-center gap-2 sm:mb-3 lg:justify-start"
-            data-aos="fade-in"
-          >
+          <div className="mb-2 flex items-center gap-2 sm:mb-3 lg:justify-start">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" />
             <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
               Pick a project
             </span>
           </div>
-          <p
-            className="mb-3 text-center text-xs leading-relaxed text-[var(--ed-muted)] lg:hidden"
-            data-aos="fade-in"
-            data-aos-delay="110"
-          >
+          <p className="mb-3 text-center text-xs leading-relaxed text-[var(--ed-muted)] lg:hidden">
             Swipe sideways to see all — tap to load the live site above.
           </p>
           <div
@@ -115,7 +106,9 @@ const EditorialProjects = () => {
                   aria-selected={isActive}
                   onClick={() => {
                     setActiveIndex(i);
-                    setLoadedIframeIndices((prev) => new Set(prev).add(i));
+                    if (p.iframeSrc) {
+                      setLoadedIframeIndices((prev) => new Set(prev).add(i));
+                    }
                   }}
                   className={`snap-center min-h-[44px] w-[min(86vw,19.5rem)] shrink-0 rounded-2xl border px-4 py-3.5 text-left transition-all active:scale-[0.99] sm:snap-start sm:min-h-0 sm:min-w-[200px] sm:w-auto sm:py-3 lg:w-full ${
                     isActive
@@ -128,7 +121,7 @@ const EditorialProjects = () => {
                       isActive ? "text-white/60" : "text-[var(--ed-muted)]"
                     }`}
                   >
-                    {isActive ? "Showing" : "Project"}
+                    {isActive ? "Showing" : p.status}
                   </span>
                   <span
                     className={`mt-1 block text-sm font-bold leading-tight ${
@@ -144,17 +137,6 @@ const EditorialProjects = () => {
                   >
                     {p.title}
                   </span>
-                  {p.lines?.length ? (
-                    <span
-                      className={`mt-2 block border-t pt-2 text-[10px] leading-relaxed ${
-                        isActive
-                          ? "border-white/15 text-white/80"
-                          : "border-black/[0.06] text-gray-600"
-                      }`}
-                    >
-                      {p.lines.join(" · ")}
-                    </span>
-                  ) : null}
                 </button>
               );
             })}
@@ -166,126 +148,145 @@ const EditorialProjects = () => {
           data-aos="fade-in"
           data-aos-delay="190"
         >
-          <p
-            className="mb-2 text-center text-xs font-semibold text-gray-800 lg:hidden"
-            data-aos="fade-in"
-            data-aos-delay="210"
-          >
-            Live preview
-          </p>
-          <div
-            className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
-            data-aos="fade-in"
-            data-aos-delay="240"
-          >
-            <div
-              className="flex flex-col gap-3 border-b border-black/[0.08] bg-white/80 px-3 py-3 backdrop-blur-md sm:gap-2 sm:px-4"
-              data-aos="fade-in"
-              data-aos-delay="250"
-            >
-              <div
-                className="flex items-start justify-between gap-3"
-                data-aos="fade-in"
-                data-aos-delay="260"
-              >
-                <div className="flex min-w-0 flex-1 items-start gap-2">
-                  <div className="mt-1.5 hidden shrink-0 items-center gap-1.5 sm:flex" aria-hidden>
-                    <span className="h-2 w-2 rounded-full bg-[#ff5f57] sm:h-2.5 sm:w-2.5" />
-                    <span className="h-2 w-2 rounded-full bg-[#febc2e] sm:h-2.5 sm:w-2.5" />
-                    <span className="h-2 w-2 rounded-full bg-[#28c840] sm:h-2.5 sm:w-2.5" />
+          {hasPreview ? (
+            <>
+              <p className="mb-2 text-center text-xs font-semibold text-gray-800 lg:hidden">
+                Live preview
+              </p>
+              <div className="editorial-card overflow-hidden p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
+                <div className="flex flex-col gap-3 border-b border-black/[0.08] bg-white/80 px-3 py-3 backdrop-blur-md sm:gap-2 sm:px-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex min-w-0 flex-1 items-start gap-2">
+                      <div className="mt-1.5 hidden shrink-0 items-center gap-1.5 sm:flex" aria-hidden>
+                        <span className="h-2 w-2 rounded-full bg-[#ff5f57] sm:h-2.5 sm:w-2.5" />
+                        <span className="h-2 w-2 rounded-full bg-[#febc2e] sm:h-2.5 sm:w-2.5" />
+                        <span className="h-2 w-2 rounded-full bg-[#28c840] sm:h-2.5 sm:w-2.5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-bold leading-tight text-gray-950 sm:text-base">
+                          {active.name}
+                        </p>
+                        <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-[var(--ed-muted)] sm:line-clamp-none">
+                          {active.title}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex shrink-0 items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={reloadActivePreview}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.1] bg-white text-gray-800 transition-colors hover:bg-white active:bg-gray-50 sm:h-9 sm:w-9"
+                        title="Reload preview"
+                        aria-label="Reload preview"
+                      >
+                        <HiOutlineRefresh className="text-lg" />
+                      </button>
+                      <a
+                        href={active.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-10 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-full bg-gray-950 px-4 py-2.5 text-xs font-semibold text-white shadow-md transition-colors hover:bg-gray-900 active:bg-gray-800"
+                      >
+                        <FaArrowUpRightFromSquare className="text-[10px] opacity-90" />
+                        Open
+                      </a>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold leading-tight text-gray-950 sm:text-base">
-                      {active.name}
-                    </p>
-                    <p className="mt-0.5 text-xs leading-snug text-[var(--ed-muted)] line-clamp-2 sm:line-clamp-none">
-                      {active.title}
-                    </p>
+                  <div className="w-full break-all rounded-lg border border-black/[0.08] bg-black/[0.03] px-2.5 py-2 font-mono text-[10px] leading-relaxed text-gray-700 sm:max-w-full sm:truncate sm:break-normal lg:max-w-[min(100%,24rem)]">
+                    {displayHost}
                   </div>
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={reloadActivePreview}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.1] bg-white text-gray-800 transition-colors hover:bg-white active:bg-gray-50 sm:h-9 sm:w-9"
-                    title="Reload preview"
-                    aria-label="Reload preview"
-                  >
-                    <HiOutlineRefresh className="text-lg" />
-                  </button>
-                  <a
-                    href={active.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-10 min-w-[5.5rem] items-center justify-center gap-1.5 rounded-full bg-gray-950 px-4 py-2.5 text-xs font-semibold text-white shadow-md transition-colors hover:bg-gray-900 active:bg-gray-800"
-                  >
-                    <FaArrowUpRightFromSquare className="text-[10px] opacity-90" />
-                    Open
-                  </a>
-                </div>
-              </div>
-              <div className="w-full break-all rounded-lg border border-black/[0.08] bg-black/[0.03] px-2.5 py-2 font-mono text-[10px] leading-relaxed text-gray-700 sm:max-w-full sm:truncate sm:break-normal lg:max-w-[min(100%,24rem)]">
-                {displayHost}
-              </div>
-            </div>
-  {/* 
-              {active.lines?.length ? (
+
                 <div
-                  className="border-b border-amber-200/70 bg-amber-50/95 px-3 py-2.5 text-xs text-amber-950 sm:px-4"
-                  data-aos="fade-in"
-                  data-aos-delay="310"
+                  className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
+                  data-lenis-prevent-wheel
+                  data-lenis-prevent-touch
                 >
-                  <p className="font-bold uppercase tracking-[0.12em] text-amber-900/90">
-                    Demo access
-                  </p>
-                  <ul className="mt-1 space-y-0.5 break-words font-mono text-[11px] text-amber-950/90">
-                    {active.lines.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
+                  {editorialProjects.map((p, i) => {
+                    if (!p.iframeSrc) return null;
+                    const isActive = i === activeIndex;
+                    const shouldLoad = loadedIframeIndices.has(i);
+                    return (
+                      <iframe
+                        key={`${p.iframeSrc}-${reloadKeys[i]}`}
+                        title={`${p.name} — live site`}
+                        src={shouldLoad ? p.iframeSrc : "about:blank"}
+                        loading={shouldLoad ? "lazy" : "eager"}
+                        referrerPolicy="no-referrer-when-downgrade"
+                        tabIndex={isActive ? 0 : -1}
+                        aria-hidden={!isActive}
+                        className={`absolute inset-0 h-full w-full border-0 ${
+                          isActive
+                            ? "z-[1] opacity-100"
+                            : "z-0 opacity-0 pointer-events-none"
+                        }`}
+                      />
+                    );
+                  })}
                 </div>
-              ) : null} */}
+              </div>
+              <p className="mt-3 px-1 text-center text-[11px] leading-relaxed text-[var(--ed-muted)] sm:mt-4 sm:text-xs lg:px-0 lg:text-left">
+                Each project loads in its frame when you select it. If a preview
+                stays blank, the host may block iframes — use{" "}
+                <strong className="font-semibold text-gray-800">Open</strong>.
+              </p>
+            </>
+          ) : (
+            <article className="editorial-card overflow-hidden p-5 shadow-[0_20px_50px_rgba(0,0,0,0.08)] sm:p-8">
+              <div className="flex flex-col gap-3 border-b border-black/[0.08] pb-5 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-amber-500/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-amber-900">
+                      {active.status}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ed-muted)]">
+                      {active.client}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 text-xl font-bold leading-tight text-gray-950 sm:text-2xl">
+                    {active.name}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--ed-muted)] sm:text-base">
+                    {active.title}
+                  </p>
+                </div>
+              </div>
 
-            {/* One iframe per project; src is set only after that tab was opened at least once */}
-            <div
-              className="relative isolate bg-[#e8e6e2] aspect-[4/5] max-h-[min(72dvh,640px)] min-h-[260px] w-full xs:min-h-[280px] sm:aspect-auto sm:h-[min(58dvh,560px)] sm:max-h-none sm:min-h-[320px] md:min-h-[380px] lg:h-[min(74dvh,860px)] lg:min-h-[420px]"
-              data-aos="fade-in"
-              data-aos-delay="340"
-              data-lenis-prevent-wheel
-              data-lenis-prevent-touch
-            >
-              {editorialProjects.map((p, i) => {
-                const isActive = i === activeIndex;
-                const shouldLoad = loadedIframeIndices.has(i);
-                return (
-                  <iframe
-                    key={`${p.iframeSrc}-${reloadKeys[i]}`}
-                    title={`${p.name} — live site`}
-                    src={shouldLoad ? p.iframeSrc : "about:blank"}
-                    loading={shouldLoad ? "lazy" : "eager"}
-                    referrerPolicy="no-referrer-when-downgrade"
-                    tabIndex={isActive ? 0 : -1}
-                    aria-hidden={!isActive}
-                    className={`absolute inset-0 h-full w-full border-0 ${
-                      isActive
-                        ? "z-[1] opacity-100"
-                        : "z-0 opacity-0 pointer-events-none"
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+              <ul className="mt-6 space-y-3">
+                {active.bullets.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-relaxed text-gray-800 sm:text-[15px]"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-          <p
-            className="mt-3 px-1 text-center text-[11px] leading-relaxed text-[var(--ed-muted)] sm:mt-4 sm:text-xs lg:px-0 lg:text-left"
-            data-aos="fade-in"
-            data-aos-delay="420"
-          >
-            Each project loads in its frame when you select it. If a preview
-            stays blank, the host may block iframes — use{" "}
-            <strong className="font-semibold text-gray-800">Open</strong>.
-          </p>
+              {active.technologies?.length ? (
+                <div className="mt-6 border-t border-black/[0.06] pt-5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ed-muted)]">
+                    Technologies
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {active.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-black/[0.08] bg-white/60 px-3 py-1.5 text-xs font-semibold text-gray-800"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              <p className="mt-5 text-xs leading-relaxed text-[var(--ed-muted)]">
+                Confidential client work — described here, not linked publicly.
+              </p>
+            </article>
+          )}
         </div>
       </div>
     </EditorialSection>

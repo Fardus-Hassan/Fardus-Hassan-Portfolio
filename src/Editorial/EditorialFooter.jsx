@@ -76,8 +76,8 @@ const EditorialFooter = () => {
               &lt;Fardus/&gt;
             </a>
             <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-[var(--ed-muted)] lg:mx-0">
-              Front-end &amp; MERN developer — web apps, ERP, and polished UI with
-              React and modern tooling.
+              Software engineer building SaaS, ERP, and e-commerce products with
+              React, Next.js, NestJS, and TypeScript.
             </p>
             <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ed-muted)]">
               Social
@@ -172,8 +172,8 @@ const EditorialFooter = () => {
         className="mt-10 flex flex-col-reverse items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
         // data-aos="fade"
       >
-        <p className="text-xs text-[var(--ed-muted)]">
-          © {new Date().getFullYear()} Fardus Hassan. All rights reserved.
+          <p className="text-xs text-[var(--ed-muted)]">
+          © {new Date().getFullYear()} Md. Fardus Hassan. All rights reserved.
         </p>
         <div
           className="flex flex-wrap items-center justify-center gap-2 sm:justify-end"

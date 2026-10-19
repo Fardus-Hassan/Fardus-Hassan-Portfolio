@@ -2,7 +2,7 @@
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdFileDownload } from "react-icons/md";
-import PDF from "../assets/Junior_Software_Engineer_Fardus_Hassan .pdf";
+import PDF from "../assets/Software_Engineer_Fardus_Hassan_Resume.pdf";
 import EditorialSection from "./EditorialSection";
 import {
   editorialCourses,
@@ -162,7 +162,7 @@ const EditorialResume = () => {
         id="experience"
         kicker="Experience"
         title="Where I shipped software"
-        subtitle="Production apps, ERP for institutes, and ongoing support after launch — from first demo to stable releases."
+        subtitle="Four roles across SaaS, ERP, e-commerce, and client frontends — from Feb 2021 to the present."
         className="!max-w-[1240px]"
       >
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
@@ -188,7 +188,7 @@ const EditorialResume = () => {
                 </div>
                 <a
                   href={PDF}
-                  download="Fardus_Hassan_Resume"
+                  download="Software_Engineer_Fardus_Hassan_Resume.pdf"
                   className="relative mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/[0.1] bg-gray-950 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition-all hover:bg-gray-900 sm:w-auto sm:px-8"
                 >
                   <MdFileDownload className="text-lg" aria-hidden />
